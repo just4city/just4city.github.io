@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea | Gridea</title>
+<title> Docker中删除images报错 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,35 +91,54 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Gridea</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://just4city.github.io/post/hello-gridea">
-                  <h2 class="post-title">Hello Gridea</h2>
-                </a>
-                <div class="post-date">
-                  2018-12-12
-                </div>
-                <div class="post-abstract">
-                  <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+          <div class="post-detail">
+            <h2 class="post-title"> Docker中删除images报错</h2>
+            <div class="post-date">2019-11-10</div>
+            
+            <div class="post-content">
+              <pre><code class="language-bash">[root@hadoop14 ~]# docker rmi ubuntu:v2
+Failed to remove image (ubuntu:v2): Error response from daemon: conflict: unable to remove repository reference &quot;ubuntu:v2&quot; (must force) - container d63a819c3eaf is using its referenced image a8edd5cf3708
+</code></pre>
+<p>原因：Docker无法删除images，由于是依赖container。<br>
+步鄹：</p>
+<pre><code>- docker rm b23dd9de7382(删除依赖的container d63a819c3eaf)
+- 可能有多个依赖，全部删除
+</code></pre>
+<p>停止所有的container，这样才能够删除其中的images：</p>
+<pre><code class="language-bash">docker stop $(docker ps -a -q)
+</code></pre>
+<p>如果想要删除所有container的话再加一个指令：</p>
+<pre><code class="language-bash">docker rm $(docker ps -a -q)
+</code></pre>
+<p>查看当前有些什么images</p>
+<pre><code class="language-bash">docker images
+</code></pre>
+<p>删除images，通过image的id来指定删除谁</p>
+<pre><code class="language-bash">docker rmi [IMAGE ID]
+</code></pre>
+<p>想要删除untagged images，也就是那些id为的image的话可以用</p>
+<pre><code class="language-bash">docker rmi  $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
+</code></pre>
+<p>要删除全部image的话</p>
+<pre><code class="language-bash">docker rmi $(docker images -q)
+</code></pre>
 
-                </div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://just4city.github.io/post/xin-gou-mai-de-vps-ru-he-pei-zhi">
+                  <h3 class="post-title">
+                    新购买的VPS如何配置
+                  </h3>
+                </a>
               </div>
-              
-                <a class="right" href="https://just4city.github.io/post/hello-gridea">
-                  <div class="feature-container" style="background-image: url('https://just4city.github.io/post-images/hello-gridea.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
