@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>服务器相关 | Gridea</title>
+<title>甲骨文云Oracle Cloud/亚马逊AWS等云服务器开启root用户登录 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,44 +91,57 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 服务器相关</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://just4city.github.io/post/jia-gu-wen-yun-oracle-cloudya-ma-xun-aws-deng-yun-fu-wu-qi-kai-qi-root-yong-hu-deng-lu">
-                  <h2 class="post-title">甲骨文云Oracle Cloud/亚马逊AWS等云服务器开启root用户登录</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-14 10:50:28
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://just4city.github.io/post/xin-gou-mai-de-vps-ru-he-pei-zhi">
-                  <h2 class="post-title">新购买的VPS如何配置</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-07 10:04:15
-                </div>
-                <div class="post-abstract">
-                  <p>由于经常安装云服务器，再次记录下。</p>
+          <div class="post-detail">
+            <h2 class="post-title">甲骨文云Oracle Cloud/亚马逊AWS等云服务器开启root用户登录</h2>
+            <div class="post-date">2019-11-14 10:50:28</div>
+            
+            <div class="post-content">
+              <p>一些云服务商默认禁止了root用户登录, 现在分享一下开启root用户登录的方法.<br>
+以oracle cloud的centos系统为例:</p>
+<pre><code class="language-bash">ssh opc@你的ip地址
+</code></pre>
+<p>登录服务器</p>
+<pre><code class="language-bash">sudo -i
+</code></pre>
+<p>切换root用户</p>
+<pre><code class="language-bash">#把ssh-rsa之前的都删除
+vi .ssh/authorized_keys
+</code></pre>
+<p>编辑ssh配置文件, 找到PermitRootLogin, 把前面的#去掉</p>
+<pre><code class="language-bash">vi /etc/ssh/sshd_config
+PermitRootLogin yes
+</code></pre>
+<p>重启ssh服务</p>
+<pre><code class="language-bash">service sshd restart
+</code></pre>
+<p>更改密码</p>
+<pre><code class="language-bash">echo root:your_password |sudo chpasswd root
+</code></pre>
 
-                </div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://just4city.github.io/tag/Asi42kKX5" class="tag">
+                    服务器相关
+                  </a>
+                
               </div>
-              
-            </article>
-          
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://just4city.github.io/post/jie-jue-oh-my-zsh-docker-bu-zi-dong-bu-quan-wen-ti">
+                  <h3 class="post-title">
+                    解决oh-my-zsh docker不自动补全问题
+                  </h3>
+                </a>
+              </div>
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
