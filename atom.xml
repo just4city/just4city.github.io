@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-11-15T07:25:04.194Z</updated>
+    <updated>2019-11-15T07:27:05.152Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -22,9 +22,8 @@
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
 </code></pre>
-<h4 id="配置环境变量">配置环境变量，</h4>
-<pre><code class="language-bash">#在~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc
-export NVM_DIR=&quot;$([ -z &quot;${XDG_CONFIG_HOME-}&quot; ] &amp;&amp; printf %s &quot;${HOME}/.nvm&quot; || printf %s &quot;${XDG_CONFIG_HOME}/nvm&quot;)&quot;
+<h4 id="配置环境变量~bash_profile-~zshrc-~profile-~bashrc">配置环境变量:<code>~/.bash_profile</code>、<code>~/.zshrc</code>、<code>~/.profile</code>、<code>~/.bashrc</code></h4>
+<pre><code class="language-bash">export NVM_DIR=&quot;$([ -z &quot;${XDG_CONFIG_HOME-}&quot; ] &amp;&amp; printf %s &quot;${HOME}/.nvm&quot; || printf %s &quot;${XDG_CONFIG_HOME}/nvm&quot;)&quot;
 [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;
 </code></pre>
 <h4 id="安装node">安装Node</h4>
