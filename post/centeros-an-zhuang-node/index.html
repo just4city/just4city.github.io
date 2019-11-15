@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Vue中import引入模块路径中@符号是什么意思 | Gridea</title>
+<title>CenterOS安装Node | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,49 +80,35 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">Vue中import引入模块路径中@符号是什么意思</h2>
+          <h2 class="post-title">CenterOS安装Node</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-11-07 10:01:37</span>
-            
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://just4city.github.io/tag/j95Kbd4pX">
-                    Vue
-                    
-                  </a>
-                
-              </span>
+            <span><i class="icon-calendar-outline"></i> 2019-11-15 03:22:42</span>
             
           </div>
           <div class="post-content">
-            <p>在编写vue文件中引入模块</p>
-<pre><code class="language-javascript">import model from &quot;@/common/model&quot;;
-这里路径前面的“@”符号表示什么意思？
+            <h4 id="安装nvm">安装NVM</h4>
+<pre><code class="language-bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+
 </code></pre>
-<pre><code class="language-javascript">resolve: {
-    // 自动补全的扩展名
-    extensions: ['.js', '.vue', '.json'],
-    // 默认路径代理
-    // 例如 import Vue from 'vue'，会自动到 'vue/dist/vue.common.js'中寻找
-    alias: {
-        '@': resolve('src'),
-        '@config': resolve('config'),
-        'vue$': 'vue/dist/vue.common.js'
-    }
-}
+<h4 id="配置环境变量">配置环境变量，</h4>
+<pre><code class="language-bash">#在~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc
+export NVM_DIR=&quot;$([ -z &quot;${XDG_CONFIG_HOME-}&quot; ] &amp;&amp; printf %s &quot;${HOME}/.nvm&quot; || printf %s &quot;${XDG_CONFIG_HOME}/nvm&quot;)&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;
 </code></pre>
-<p>@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径</p>
-<p>参考来源：https://www.cnblogs.com/boshow/p/8758927.html</p>
+<h4 id="安装node">安装Node</h4>
+<pre><code class="language-bash">nvm install node
+</code></pre>
 
           </div>
         </div>
 
         
           <div class="next-post">
-            <a class="purple-link" href="https://just4city.github.io/post/hello-gridea">
+            <a class="purple-link" href="https://just4city.github.io/post/jia-gu-wen-yun-oracle-cloudya-ma-xun-aws-deng-yun-fu-wu-qi-kai-qi-root-yong-hu-deng-lu">
               <h3 class="post-title">
-                下一篇：Hello Gridea
+                下一篇：甲骨文云Oracle Cloud/亚马逊AWS等云服务器开启root用户登录
               </h3>
             </a>
           </div>
