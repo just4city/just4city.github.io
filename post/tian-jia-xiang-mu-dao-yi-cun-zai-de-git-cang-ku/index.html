@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Vue中import引入模块路径中@符号是什么意思 | Gridea</title>
+<title>添加项目到【已存在的】Git仓库 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,15 +80,15 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">Vue中import引入模块路径中@符号是什么意思</h2>
+          <h2 class="post-title">添加项目到【已存在的】Git仓库</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-11-07 22:01</span>
+            <span><i class="icon-calendar-outline"></i> 2019-11-18 15:26</span>
             
               <span>
                 <i class="icon-pricetags-outline"></i>
                 
-                  <a href="https://just4city.github.io/tag/j95Kbd4pX">
-                    Vue
+                  <a href="https://just4city.github.io/tag/knT1WVz-G">
+                    Git相关
                     
                   </a>
                 
@@ -96,33 +96,26 @@
             
           </div>
           <div class="post-content">
-            <p>在编写vue文件中引入模块</p>
-<pre><code class="language-javascript">import model from &quot;@/common/model&quot;;
-这里路径前面的“@”符号表示什么意思？
+            <h4 id="新的仓库">新的仓库</h4>
+<pre><code class="language-bash">git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin git@github.com:fhefh2018/hackintosh_efi_site.git
+git push -u origin master
 </code></pre>
-<pre><code class="language-javascript">resolve: {
-    // 自动补全的扩展名
-    extensions: ['.js', '.vue', '.json'],
-    // 默认路径代理
-    // 例如 import Vue from 'vue'，会自动到 'vue/dist/vue.common.js'中寻找
-    alias: {
-        '@': resolve('src'),
-        '@config': resolve('config'),
-        'vue$': 'vue/dist/vue.common.js'
-    }
-}
+<h4 id="已存在的仓库">已存在的仓库</h4>
+<pre><code class="language-bash">git remote add origin git@github.com:fhefh2018/hackintosh_efi_site.git
+git push -u origin master
 </code></pre>
-<p>@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径</p>
-<p>参考来源：https://www.cnblogs.com/boshow/p/8758927.html</p>
 
           </div>
         </div>
 
         
           <div class="next-post">
-            <a class="purple-link" href="https://just4city.github.io/post/hello-gridea">
+            <a class="purple-link" href="https://just4city.github.io/post/centeros-an-zhuang-node">
               <h3 class="post-title">
-                下一篇：Hello Gridea
+                下一篇：CenterOS安装Node
               </h3>
             </a>
           </div>
