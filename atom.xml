@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-11-18T07:57:28.967Z</updated>
+    <updated>2019-11-18T14:24:55.372Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[egg.js跨域问题]]></title>
+        <id>https://just4city.github.io/post/eggjs-kua-yu-wen-ti</id>
+        <link href="https://just4city.github.io/post/eggjs-kua-yu-wen-ti">
+        </link>
+        <updated>2019-11-18T14:21:02.000Z</updated>
+        <summary type="html"><![CDATA[<p>前后端分离下,egg如何设置跨域</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>前后端分离下,egg如何设置跨域</p>
+<!-- more -->
+<p>不设置白名单，直接在egg跨域插件配置的origin里面指定访问域名并开启认证模式</p>
+<pre><code class="language-javascript">config.cors = {
+    origin:'http://ip:port',
+    credentials: true,
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
+</code></pre>
+<p><a href="https://github.com/eggjs/egg/issues/725">https://github.com/eggjs/egg/issues/725</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[添加项目到【已存在的】Git仓库]]></title>
         <id>https://just4city.github.io/post/tian-jia-xiang-mu-dao-yi-cun-zai-de-git-cang-ku</id>

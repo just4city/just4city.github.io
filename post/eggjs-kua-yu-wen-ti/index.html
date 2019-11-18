@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Mac相关 | Gridea</title>
+<title>egg.js跨域问题 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -78,48 +78,51 @@
 
 
       <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">egg.js跨域问题</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-11-18 22:21</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/QzBJfb3yR">
+                    WEB开发
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>前后端分离下,egg如何设置跨域</p>
+<!-- more -->
+<p>不设置白名单，直接在egg跨域插件配置的origin里面指定访问域名并开启认证模式</p>
+<pre><code class="language-javascript">config.cors = {
+    origin:'http://ip:port',
+    credentials: true,
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
 
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> Mac相关
-          </h2> 
+</code></pre>
+<p><a href="https://github.com/eggjs/egg/issues/725">https://github.com/eggjs/egg/issues/725</a></p>
+
+          </div>
         </div>
 
         
-<section class="post-item">
-    <div class="content">
-      <a href="https://just4city.github.io/post/jie-jue-oh-my-zsh-docker-bu-zi-dong-bu-quan-wen-ti">
-        <h2 class="post-title">解决oh-my-zsh docker不自动补全问题</h2>
-      </a>
-      <div class="post-abstract">
-        
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/tian-jia-xiang-mu-dao-yi-cun-zai-de-git-cang-ku">
+              <h3 class="post-title">
+                下一篇：添加项目到【已存在的】Git仓库
+              </h3>
+            </a>
+          </div>
+          
       </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2019-11-11 10:39</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://just4city.github.io/tag/9o5MU6Rlc">
-                Mac相关
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
 
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
-      </div>
+      
 
       <div class="site-footer">
   <div class="slogan">温故而知新</div>
