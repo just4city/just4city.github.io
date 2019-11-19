@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Docker run 命令参数及使用 | Gridea</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://just4city.github.io/favicon.ico?v=1574154719538">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://just4city.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://just4city.github.io">
+        <img class="avatar" src="https://just4city.github.io/images/avatar.png?v=1574154719538" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://just4city.github.io">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Docker run 命令参数及使用</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-11-19 17:08</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/PyFn3QYra">
+                    Docker
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h4 id="docker-run-创建一个新的容器并运行一个命令">Docker run ：创建一个新的容器并运行一个命令</h4>
+<pre><code class="language-bash">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]  
+</code></pre>
+<p>OPTIONS说明：</p>
+<pre><code class="language-bash">Usage: docker run [OPTIONS] IMAGE [COMMAND] [ARG...]    
+
+-d, --detach=false         指定容器运行于前台还是后台，默认为false     
+-i, --interactive=false   打开STDIN，用于控制台交互    
+-t, --tty=false            分配tty设备，该可以支持终端登录，默认为false    
+-u, --user=&quot;&quot;              指定容器的用户    
+-a, --attach=[]            登录容器（必须是以docker run -d启动的容器）  
+-w, --workdir=&quot;&quot;           指定容器的工作目录   
+-c, --cpu-shares=0        设置容器CPU权重，在CPU共享场景使用    
+-e, --env=[]               指定环境变量，容器中可以使用该环境变量    
+-m, --memory=&quot;&quot;            指定容器的内存上限    
+-P, --publish-all=false    指定容器暴露的端口    
+-p, --publish=[]           指定容器暴露的端口   
+-h, --hostname=&quot;&quot;          指定容器的主机名    
+-v, --volume=[]            给容器挂载存储卷，挂载到容器的某个目录    
+--volumes-from=[]          给容器挂载其他容器上的卷，挂载到容器的某个目录  
+--cap-add=[]               添加权限，权限清单详见：http://linux.die.net/man/7/capabilities    
+--cap-drop=[]              删除权限，权限清单详见：http://linux.die.net/man/7/capabilities    
+--cidfile=&quot;&quot;               运行容器后，在指定文件中写入容器PID值，一种典型的监控系统用法    
+--cpuset=&quot;&quot;                设置容器可以使用哪些CPU，此参数可以用来容器独占CPU    
+--device=[]                添加主机设备给容器，相当于设备直通    
+--dns=[]                   指定容器的dns服务器    
+--dns-search=[]            指定容器的dns搜索域名，写入到容器的/etc/resolv.conf文件    
+--entrypoint=&quot;&quot;            覆盖image的入口点    
+--env-file=[]              指定环境变量文件，文件格式为每行一个环境变量    
+--expose=[]                指定容器暴露的端口，即修改镜像的暴露端口    
+--link=[]                  指定容器间的关联，使用其他容器的IP、env等信息    
+--lxc-conf=[]              指定容器的配置文件，只有在指定--exec-driver=lxc时使用    
+--name=&quot;&quot;                  指定容器名字，后续可以通过名字进行容器管理，links特性需要使用名字    
+--net=&quot;bridge&quot;             容器网络设置:  
+                              bridge 使用docker daemon指定的网桥       
+                              host    //容器使用主机的网络    
+                              container:NAME_or_ID  &gt;//使用其他容器的网路，共享IP和PORT等网络资源    
+                              none 容器使用自己的网络（类似--net=bridge），但是不进行配置   
+--privileged=false         指定容器是否为特权容器，特权容器拥有所有的capabilities    
+--restart=&quot;no&quot;             指定容器停止后的重启策略:  
+                              no：容器退出时不重启    
+                              on-failure：容器故障退出（返回值非零）时重启   
+                              always：容器退出时总是重启    
+--rm=false                 指定容器停止后自动删除容器(不支持以docker run -d启动的容器)    
+--sig-proxy=true           设置由代理接受并处理信号，但是SIGCHLD、SIGSTOP和SIGKILL不能被代理    
+</code></pre>
+<h4 id="实例">实例</h4>
+<p>使用docker镜像nginx:latest以后台模式启动一个容器,并将容器命名为mynginx</p>
+<pre><code class="language-bash">docker run --name mynginx -d nginx:latest  
+</code></pre>
+<p>使用镜像nginx:latest以后台模式启动一个容器,并将容器的80端口映射到主机随机端口</p>
+<pre><code class="language-bash">docker run -P -d nginx:latest    
+</code></pre>
+<p>使用镜像nginx:latest以后台模式启动一个容器,将容器的80端口映射到主机的80端口,主机的目录/data映射到容器的/data</p>
+<pre><code class="language-bash">docker run -p 80:80 -v /data:/data -d nginx:latest     
+</code></pre>
+<p>使用镜像nginx:latest以交互模式启动一个容器,在容器内执行/bin/bash命令</p>
+<pre><code class="language-bash">docker run -it nginx:latest /bin/bash    
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/eggjs-kua-yu-wen-ti">
+              <h3 class="post-title">
+                下一篇：egg.js跨域问题
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://just4city.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
