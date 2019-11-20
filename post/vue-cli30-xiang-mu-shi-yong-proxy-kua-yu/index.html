@@ -1,9 +1,11 @@
+
+<!DOCTYPE html>
 <html>
   <head>
     
 <meta charset="utf-8" >
 
-<title>Gridea</title>
+<title>vue-cli3.0项目使用proxy跨域 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -75,29 +77,67 @@
 </transition>
 
 
-        <div class="content-container">
+      <div class="content-container">
+        <div class="post-detail">
           
-          <div class="tags-container">
+          <h2 class="post-title">vue-cli3.0项目使用proxy跨域</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-11-20 14:32</span>
             
-              <a class="tag" href="https://just4city.github.io/tag/j95Kbd4pX">Vue</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/PyFn3QYra">Docker</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/QzBJfb3yR">WEB开发</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/knT1WVz-G">Git相关</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/Asi42kKX5">服务器相关</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/9o5MU6Rlc">Mac相关</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/fvfMEIQbG">Gridea</a>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/j95Kbd4pX">
+                    Vue
+                    
+                  </a>
+                
+              </span>
             
           </div>
+          <div class="post-content">
+            <p>通过vue-cli3.x版本构建的项目使用proxy和以前的项目不同，而且3.x版本构建的时候可以选用typescript了。下面记录一下如何使用proxy跨域。<br>
+首先在根目录创建vue.config.js文件，这个配置文件在运行项目的时候自动加载。</p>
+<pre><code class="language-javascript">// vue.config.js
+module.exports = {
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://xxxx/device/', //对应自己的接口
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  }
+}
 
+</code></pre>
+<p>请求:</p>
+<pre><code class="language-javascript">axios.get('/api/getDataPoint').then(res =&gt; {
+  console.log(res)
+})
+</code></pre>
+
+          </div>
         </div>
 
-        <div class="site-footer">
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/nginx-tong-yi-ge-yu-ming-xia-bu-shu-duo-ge-gong-cheng">
+              <h3 class="post-title">
+                下一篇：nginx 同一个域名下部署多个工程
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
   <div class="slogan">温故而知新</div>
   <div class="social-container">
     
@@ -116,8 +156,8 @@
 </div>
 
 
-      </div>
-      <script type="application/javascript">
+    </div>
+    <script type="application/javascript">
 
 hljs.initHighlightingOnLoad()
 
@@ -133,6 +173,5 @@ var app = new Vue({
 
 
 
-    </div>
   </body>
 </html>

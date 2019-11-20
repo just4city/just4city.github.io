@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-11-19T14:26:47.049Z</updated>
+    <updated>2019-11-20T06:34:05.223Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[vue-cli3.0项目使用proxy跨域]]></title>
+        <id>https://just4city.github.io/post/vue-cli30-xiang-mu-shi-yong-proxy-kua-yu</id>
+        <link href="https://just4city.github.io/post/vue-cli30-xiang-mu-shi-yong-proxy-kua-yu">
+        </link>
+        <updated>2019-11-20T06:32:07.000Z</updated>
+        <content type="html"><![CDATA[<p>通过vue-cli3.x版本构建的项目使用proxy和以前的项目不同，而且3.x版本构建的时候可以选用typescript了。下面记录一下如何使用proxy跨域。<br>
+首先在根目录创建vue.config.js文件，这个配置文件在运行项目的时候自动加载。</p>
+<pre><code class="language-javascript">// vue.config.js
+module.exports = {
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://xxxx/device/', //对应自己的接口
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  }
+}
+
+</code></pre>
+<p>请求:</p>
+<pre><code class="language-javascript">axios.get('/api/getDataPoint').then(res =&gt; {
+  console.log(res)
+})
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[nginx 同一个域名下部署多个工程]]></title>
         <id>https://just4city.github.io/post/nginx-tong-yi-ge-yu-ming-xia-bu-shu-duo-ge-gong-cheng</id>
@@ -385,32 +417,6 @@ ufw reload &gt; /dev/null
 
 0 0 * * 1 /opt/cloudflare/cloudflare-ufw.sh &gt; /dev/null 2&gt;&amp;1
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue中import引入模块路径中@符号是什么意思]]></title>
-        <id>https://just4city.github.io/post/vue-zhong-import-yin-ru-mo-kuai-lu-jing-zhong-fu-hao-shi-shi-me-yi-si</id>
-        <link href="https://just4city.github.io/post/vue-zhong-import-yin-ru-mo-kuai-lu-jing-zhong-fu-hao-shi-shi-me-yi-si">
-        </link>
-        <updated>2019-11-07T14:01:37.000Z</updated>
-        <content type="html"><![CDATA[<p>在编写vue文件中引入模块</p>
-<pre><code class="language-javascript">import model from &quot;@/common/model&quot;;
-这里路径前面的“@”符号表示什么意思？
-</code></pre>
-<pre><code class="language-javascript">resolve: {
-    // 自动补全的扩展名
-    extensions: ['.js', '.vue', '.json'],
-    // 默认路径代理
-    // 例如 import Vue from 'vue'，会自动到 'vue/dist/vue.common.js'中寻找
-    alias: {
-        '@': resolve('src'),
-        '@config': resolve('config'),
-        'vue$': 'vue/dist/vue.common.js'
-    }
-}
-</code></pre>
-<p>@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径</p>
-<p>参考来源：https://www.cnblogs.com/boshow/p/8758927.html</p>
 ]]></content>
     </entry>
 </feed>
