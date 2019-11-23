@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-11-20T06:34:05.223Z</updated>
+    <updated>2019-11-23T02:59:49.841Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Vue:axios减少重复请求数据 keep-alive]]></title>
+        <id>https://just4city.github.io/post/vueaxios-jian-shao-chong-fu-qing-qiu-shu-ju-keep-alive</id>
+        <link href="https://just4city.github.io/post/vueaxios-jian-shao-chong-fu-qing-qiu-shu-ju-keep-alive">
+        </link>
+        <updated>2019-11-23T02:46:06.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/03b9474c2dc1">https://www.jianshu.com/p/03b9474c2dc1</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[vue-cli3.0项目使用proxy跨域]]></title>
         <id>https://just4city.github.io/post/vue-cli30-xiang-mu-shi-yong-proxy-kua-yu</id>
@@ -254,168 +263,6 @@ Failed to remove image (ubuntu:v2): Error response from daemon: conflict: unable
 </code></pre>
 <p>要删除全部image的话</p>
 <pre><code class="language-bash">docker rmi $(docker images -q)
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[新购买的VPS如何配置]]></title>
-        <id>https://just4city.github.io/post/xin-gou-mai-de-vps-ru-he-pei-zhi</id>
-        <link href="https://just4city.github.io/post/xin-gou-mai-de-vps-ru-he-pei-zhi">
-        </link>
-        <updated>2019-11-07T14:04:15.000Z</updated>
-        <summary type="html"><![CDATA[<p>由于经常安装云服务器，再次记录下。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>由于经常安装云服务器，再次记录下。</p>
-<!--more-->
-<h2 id="安装相关包">安装相关包</h2>
-<pre><code class="language-bash">yum install -y gcc
-yum install -y openssl
-yum install -y openssl-devel
-yum install -y zlib-devel
-yum install -y git
-yum install -y unzip
-</code></pre>
-<h2 id="禁用密码登陆使用秘钥登陆">禁用密码登陆，使用秘钥登陆</h2>
-<pre><code class="language-bash">vim /etc/ssh/sshd_config
-
-# 是否让 sshd 去检查用户家目录或相关档案的权限数据，
-# 这是为了担心使用者将某些重要档案的权限设错，可能会导致一些问题所致。
-# 例如使用者的 ~.ssh/ 权限设错时，某些特殊情况下会不许用户登入
-StrictModes no
-# 是否允许用户自行使用成对的密钥系统进行登入行为，仅针对 version 2。
-# 至于自制的公钥数据就放置于用户家目录下的 .ssh/authorized_keys 内
-RSAAuthentication yes
-PubkeyAuthentication yes
-AuthorizedKeysFile      %h/.ssh/authorized_keys
-#有了证书登录了，就禁用密码登录吧，安全要紧
-PasswordAuthentication no
-
-#重启服务
-
-#ubuntu
-/etc/init.d/ssh restart
-
-#centos
-service sshd restart
-
-</code></pre>
-<h2 id="升级vim8">升级VIM8</h2>
-<pre><code class="language-bash">yum install ncurses-devel
-wget https://github.com/vim/vim/archive/v8.0.1376.zip
-unzip master.zip
-cd vim-master
-cd src/
-./configure
-make
-sudo make install
-vim
-
-//配置增强版VIM
-//安装
-bash &lt;(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)
-//卸载
-bash &lt;(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/uninstall.sh)
-
-</code></pre>
-<h2 id="安装oh-my-zsh">安装oh-my-zsh</h2>
-<pre><code class="language-bash">//安装zsh
-yum -y install zsh
-
-//切换shell
-chsh -s /bin/zsh
-
-//安装oh my zsh
-//curl
-sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-//wget 
-sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
-
-//添加插件
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
-//vim .zshrc中找到plugins
-//plugins=(zsh-autosuggestions)
-</code></pre>
-<h2 id="安装python3">安装Python3</h2>
-<pre><code class="language-bash">wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
-tar xzvf Python-3.6.1.tgz
-</code></pre>
-<p>修改Pyhton3安装配置 解决SSL模块无法使用问题</p>
-<pre><code class="language-bash">vim Modules/Setup.dist 或
-vim Modules/Setup
-# Socket module helper for socket(2)
-_socket socketmodule.c timemodule.c
-# Socket module helper for SSL support; you must comment out the other
-# socket line above, and possibly edit the SSL variable:
-#SSL=/usr/local/ssl
-_ssl _ssl.c \
--DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
--L$(SSL)/lib -lssl -lcrypto
-</code></pre>
-<h5 id="安装python3-2">安装Python3</h5>
-<pre><code class="language-bash">cd Python-3.6.1
-mkdir /usr/local/python3.6
-./configure --prefix=/usr/local/python3.6
-make
-make install
-</code></pre>
-<h5 id="替换原有的python链接">替换原有的Python链接</h5>
-<pre><code class="language-bash">mv /usr/bin/python /usr/bin/python_bak
-ln -s /usr/local/python3.1/bin/python3.1  /usr/bin/python 
-注意要修改yum文件，yum依赖系统的python
-vim /usr/bin/yum
-打开文件后，将/usr/bin/python修改成/usr/bin/python_bak即可
-
-</code></pre>
-<h2 id="安装ufw">安装ufw</h2>
-<pre><code>//ubuntu
-apt-get install ufw -y 
-
-//debian
-apt-get install ufw -y
-
-//center os
-yum install epel-release -y
-yum install --enablerepo=&quot;epel&quot; ufw -y
-
-</code></pre>
-<h2 id="ufw相关配置">ufw相关配置</h2>
-<p><a href="https://linuxconfig.org/how-to-install-and-use-ufw-firewall-on-linux">https://linuxconfig.org/how-to-install-and-use-ufw-firewall-on-linux</a></p>
-<p><a href="http://notes.maxwi.com/2017/01/19/linux-command-tools-ufw">http://notes.maxwi.com/2017/01/19/linux-command-tools-ufw</a></p>
-<pre><code class="language-bash">//默认配置
-ufw default deny incoming
-ufw default allow outgoing
-</code></pre>
-<h2 id="cloudflare-ufw配置">cloudflare ufw配置</h2>
-<p><code>cloudflare-ufw.sh</code>, <a href="https://github.com/Paul-Reed/cloudflare-ufw/blob/master/cloudflare-ufw.sh">参考链接</a>:</p>
-<pre><code class="language-bash">#!/bin/sh
-
-DIR=&quot;$(dirname $(readlink -f $0))&quot;
-cd $DIR
-wget https://www.cloudflare.com/ips-v4 -O ips-v4.tmp
-wget https://www.cloudflare.com/ips-v6 -O ips-v6.tmp
-mv ips-v4.tmp ips-v4
-mv ips-v6.tmp ips-v6
-
-for cfip in `cat ips-v4`; do ufw allow from $cfip; done
-for cfip in `cat ips-v6`; do ufw allow from $cfip; done
-
-ufw reload &gt; /dev/null
-
-# OTHER EXAMPLE RULES
-# Examples to retrict to port 80
-#for cfip in `cat ips-v4`; do ufw allow from $cfip to any port 80 proto tcp; done
-#for cfip in `cat ips-v6`; do ufw allow from $cfip to any port 80 proto tcp; done
-
-# Examples to restrict to port 443
-#for cfip in `cat ips-v4`; do ufw allow from $cfip to any port 443 proto tcp; done
-#for cfip in `cat ips-v6`; do ufw allow from $cfip to any port 443 proto tcp; done
-
-</code></pre>
-<p>配置运行：</p>
-<pre><code class="language-bash">sudo crontab -e
-
-0 0 * * 1 /opt/cloudflare/cloudflare-ufw.sh &gt; /dev/null 2&gt;&amp;1
 </code></pre>
 ]]></content>
     </entry>
