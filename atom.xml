@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-11-23T02:59:49.841Z</updated>
+    <updated>2019-11-24T15:22:03.875Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,41 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Nginx解决vue router的history模式下，页面刷新404]]></title>
+        <id>https://just4city.github.io/post/nginx-jie-jue-vue-router-de-history-mo-shi-xia-ye-mian-shua-xin-404</id>
+        <link href="https://just4city.github.io/post/nginx-jie-jue-vue-router-de-history-mo-shi-xia-ye-mian-shua-xin-404">
+        </link>
+        <updated>2019-11-24T07:31:27.000Z</updated>
+        <summary type="html"><![CDATA[<p>在日常开发中，我们使用到vue一般会有两种路由模式，一种是hash一种是history。相较于hash又长又臭的路由地址，相信大多数人更加喜欢history模式清爽的路由格式。但同样的，history模式也存在着一些问题。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在日常开发中，我们使用到vue一般会有两种路由模式，一种是hash一种是history。相较于hash又长又臭的路由地址，相信大多数人更加喜欢history模式清爽的路由格式。但同样的，history模式也存在着一些问题。</p>
+<!-- more -->
+<p>因为我们的应用是个单页客户端应用，如果后台没有正确的配置，当用户在浏览器直接访问http://xxx.com/user/id就会返回 404，这就不好看了。官方给出了几种解决方式如下：</p>
+<pre><code class="language-bash">//Apache
+&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+
+//Nginx
+location / {
+  try_files $uri $uri/ /index.html;
+}
+
+//Tomcat
+&lt;error-page&gt;    
+    &lt;error-code&gt;404&lt;/error-code&gt;    
+    &lt;location&gt;/&lt;/location&gt;    
+&lt;/error-page&gt; 
+</code></pre>
+<p><a href="https://ethan.pub/?p=897">https://ethan.pub/?p=897</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue:axios减少重复请求数据 keep-alive]]></title>
         <id>https://just4city.github.io/post/vueaxios-jian-shao-chong-fu-qing-qiu-shu-ju-keep-alive</id>
@@ -229,40 +264,6 @@ PermitRootLogin yes
 <img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master//20191111104208-kNMNmH.jpg" alt=""></p>
 <p>解决办法：</p>
 <pre><code class="language-bash">rm ~/.zcompdump*
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ Docker中删除images报错]]></title>
-        <id>https://just4city.github.io/post/docker-zhong-shan-chu-images-bao-cuo</id>
-        <link href="https://just4city.github.io/post/docker-zhong-shan-chu-images-bao-cuo">
-        </link>
-        <updated>2019-11-10T06:59:00.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-bash">[root@hadoop14 ~]# docker rmi ubuntu:v2
-Failed to remove image (ubuntu:v2): Error response from daemon: conflict: unable to remove repository reference &quot;ubuntu:v2&quot; (must force) - container d63a819c3eaf is using its referenced image a8edd5cf3708
-</code></pre>
-<p>原因：<code>Docker无法删除images，由于是依赖container</code><br>
-步骤：</p>
-<pre><code>- docker rm b23dd9de7382(删除依赖的container d63a819c3eaf)
-- 可能有多个依赖，全部删除
-</code></pre>
-<p>停止所有的container，这样才能够删除其中的images：</p>
-<pre><code class="language-bash">docker stop $(docker ps -a -q)
-</code></pre>
-<p>如果想要删除所有container的话再加一个指令：</p>
-<pre><code class="language-bash">docker rm $(docker ps -a -q)
-</code></pre>
-<p>查看当前有些什么images</p>
-<pre><code class="language-bash">docker images
-</code></pre>
-<p>删除images，通过image的id来指定删除谁</p>
-<pre><code class="language-bash">docker rmi [IMAGE ID]
-</code></pre>
-<p>想要删除untagged images，也就是那些id为的image的话可以用</p>
-<pre><code class="language-bash">docker rmi  $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
-</code></pre>
-<p>要删除全部image的话</p>
-<pre><code class="language-bash">docker rmi $(docker images -q)
 </code></pre>
 ]]></content>
     </entry>

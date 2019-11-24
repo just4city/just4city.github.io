@@ -1,9 +1,11 @@
+
+<!DOCTYPE html>
 <html>
   <head>
     
 <meta charset="utf-8" >
 
-<title>Gridea</title>
+<title>Nginx解决vue router的history模式下，页面刷新404 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -75,29 +77,68 @@
 </transition>
 
 
-        <div class="content-container">
+      <div class="content-container">
+        <div class="post-detail">
           
-          <div class="tags-container">
+          <h2 class="post-title">Nginx解决vue router的history模式下，页面刷新404</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-11-24 15:31</span>
             
-              <a class="tag" href="https://just4city.github.io/tag/j95Kbd4pX">Vue</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/PyFn3QYra">Docker</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/QzBJfb3yR">WEB开发</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/knT1WVz-G">Git相关</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/Asi42kKX5">服务器相关</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/9o5MU6Rlc">Mac相关</a>
-            
-              <a class="tag" href="https://just4city.github.io/tag/fvfMEIQbG">Gridea</a>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/j95Kbd4pX">
+                    Vue
+                    
+                  </a>
+                
+              </span>
             
           </div>
+          <div class="post-content">
+            <p>在日常开发中，我们使用到vue一般会有两种路由模式，一种是hash一种是history。相较于hash又长又臭的路由地址，相信大多数人更加喜欢history模式清爽的路由格式。但同样的，history模式也存在着一些问题。</p>
+<!-- more -->
+<p>因为我们的应用是个单页客户端应用，如果后台没有正确的配置，当用户在浏览器直接访问http://xxx.com/user/id就会返回 404，这就不好看了。官方给出了几种解决方式如下：</p>
+<pre><code class="language-bash">//Apache
+&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
 
+//Nginx
+location / {
+  try_files $uri $uri/ /index.html;
+}
+
+//Tomcat
+&lt;error-page&gt;    
+    &lt;error-code&gt;404&lt;/error-code&gt;    
+    &lt;location&gt;/&lt;/location&gt;    
+&lt;/error-page&gt; 
+</code></pre>
+<p><a href="https://ethan.pub/?p=897">https://ethan.pub/?p=897</a></p>
+
+          </div>
         </div>
 
-        <div class="site-footer">
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/vueaxios-jian-shao-chong-fu-qing-qiu-shu-ju-keep-alive">
+              <h3 class="post-title">
+                下一篇：Vue:axios减少重复请求数据 keep-alive
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
   <div class="slogan">温故而知新</div>
   <div class="social-container">
     
@@ -116,8 +157,8 @@
 </div>
 
 
-      </div>
-      <script type="application/javascript">
+    </div>
+    <script type="application/javascript">
 
 hljs.initHighlightingOnLoad()
 
@@ -133,6 +174,5 @@ var app = new Vue({
 
 
 
-    </div>
   </body>
 </html>
