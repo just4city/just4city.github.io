@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-12-02T13:25:02.862Z</updated>
+    <updated>2019-12-03T07:21:52.857Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,106 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[手写JS函数的call、apply、bind实现]]></title>
+        <id>https://just4city.github.io/post/shou-xie-js-han-shu-de-callapplybind-shi-xian</id>
+        <link href="https://just4city.github.io/post/shou-xie-js-han-shu-de-callapplybind-shi-xian">
+        </link>
+        <updated>2019-12-03T07:18:30.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="call">call</h3>
+<pre><code class="language-javascript">/**
+ * 自定义call实现
+ * @param context   上下文this对象
+ * @param args      动态参数
+ */
+Function.prototype.ownCall = function(context, ...args) {
+  context = (typeof context === 'object' ? context : window)
+  // 防止覆盖掉原有属性
+  const key = Symbol()
+  // 这里的this为需要执行的方法
+  context[key] = this
+  // 方法执行
+  const result = context[key](...args)
+  delete context[key]
+  return result
+}
+
+// 验证样例
+function fun(arg1, arg2) {
+  console.log(this.name)
+  console.log(arg1 + arg2)
+}
+const _this = { name: 'YIYING' }
+// 接受的是一个参数列表;方法立即执行
+fun.ownCall(_this, 1, 2)
+
+// 输出：
+YIYING
+3
+
+</code></pre>
+<h3 id="apply">apply</h3>
+<pre><code class="language-javascript">/**
+ * 自定义Apply实现
+ * @param context   上下文this对象
+ * @param args      参数数组
+ */
+Function.prototype.ownApply = function(context, args) {
+  context = (typeof context === 'object' ? context : window)
+  // 防止覆盖掉原有属性
+  const key = Symbol()
+  // 这里的this为需要执行的方法
+  context[key] = this
+  // 方法执行
+  const result = context[key](...args)
+  delete context[key]
+  return result
+}
+
+// 验证样例
+function fun(arg1, arg2) {
+  console.log(this.name)
+  console.log(arg1 + arg2)
+}
+const _this = { name: 'YIYING' }
+// 参数为数组;方法立即执行
+fun.ownApply(_this, [1, 2])
+
+// 输出：
+YIYING
+3
+</code></pre>
+<h3 id="bind">bind</h3>
+<pre><code class="language-javascript">/**
+ * 自定义bind实现
+ * @param context     上下文
+ * @returns {Function}
+ */
+Function.prototype.ownBind = function(context) {
+  context = (typeof context === 'object' ? context : window)
+  return (...args)=&gt;{
+    this.call(context, ...args)
+  }
+}
+
+// 验证样例
+function fun(arg1, arg2) {
+  console.log(this.name)
+  console.log(arg1 + arg2)
+}
+const _this = { name: 'YIYING' }
+// 只变更fun中的this指向，返回新function对象
+const newFun = fun.ownBind(_this)
+newFun(1, 2)
+
+// 输出：
+YIYING
+3
+</code></pre>
+<p>参考:<br>
+<a href="https://juejin.im/post/5de3881ee51d4501b9561ada?utm_source=gold_browser_extension">手写JS函数的call、apply、bind实现</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[vue.config.js别名配置]]></title>
         <id>https://just4city.github.io/post/vueconfigjs-bie-ming-pei-zhi</id>
@@ -309,25 +409,6 @@ module.exports = {
 
 </code></pre>
 <p><a href="https://github.com/eggjs/egg/issues/725">https://github.com/eggjs/egg/issues/725</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[添加项目到【已存在的】Git仓库]]></title>
-        <id>https://just4city.github.io/post/tian-jia-xiang-mu-dao-yi-cun-zai-de-git-cang-ku</id>
-        <link href="https://just4city.github.io/post/tian-jia-xiang-mu-dao-yi-cun-zai-de-git-cang-ku">
-        </link>
-        <updated>2019-11-18T07:26:39.000Z</updated>
-        <content type="html"><![CDATA[<h4 id="新的仓库">新的仓库</h4>
-<pre><code class="language-bash">git init
-git add README.md
-git commit -m &quot;first commit&quot;
-git remote add origin git@github.com:fhefh2018/hackintosh_efi_site.git
-git push -u origin master
-</code></pre>
-<h4 id="已存在的仓库">已存在的仓库</h4>
-<pre><code class="language-bash">git remote add origin git@github.com:fhefh2018/hackintosh_efi_site.git
-git push -u origin master
-</code></pre>
 ]]></content>
     </entry>
 </feed>

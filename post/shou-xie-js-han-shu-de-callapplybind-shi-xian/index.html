@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Hello Gridea | Gridea</title>
+<title>手写JS函数的call、apply、bind实现 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,18 +80,15 @@
       <div class="content-container">
         <div class="post-detail">
           
-            <div class="feature-container" style="background-image: url('https://just4city.github.io/post-images/hello-gridea.png')">
-            </div>
-          
-          <h2 class="post-title">Hello Gridea</h2>
+          <h2 class="post-title">手写JS函数的call、apply、bind实现</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2018-12-12 00:00</span>
+            <span><i class="icon-calendar-outline"></i> 2019-12-03 15:18</span>
             
               <span>
                 <i class="icon-pricetags-outline"></i>
                 
-                  <a href="https://just4city.github.io/tag/fvfMEIQbG">
-                    Gridea
+                  <a href="https://just4city.github.io/tag/ItETSLaSc">
+                    JavaScript
                     
                   </a>
                 
@@ -99,32 +96,111 @@
             
           </div>
           <div class="post-content">
-            <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+            <h3 id="call">call</h3>
+<pre><code class="language-javascript">/**
+ * 自定义call实现
+ * @param context   上下文this对象
+ * @param args      动态参数
+ */
+Function.prototype.ownCall = function(context, ...args) {
+  context = (typeof context === 'object' ? context : window)
+  // 防止覆盖掉原有属性
+  const key = Symbol()
+  // 这里的this为需要执行的方法
+  context[key] = this
+  // 方法执行
+  const result = context[key](...args)
+  delete context[key]
+  return result
+}
+
+// 验证样例
+function fun(arg1, arg2) {
+  console.log(this.name)
+  console.log(arg1 + arg2)
+}
+const _this = { name: 'YIYING' }
+// 接受的是一个参数列表;方法立即执行
+fun.ownCall(_this, 1, 2)
+
+// 输出：
+YIYING
+3
+
+</code></pre>
+<h3 id="apply">apply</h3>
+<pre><code class="language-javascript">/**
+ * 自定义Apply实现
+ * @param context   上下文this对象
+ * @param args      参数数组
+ */
+Function.prototype.ownApply = function(context, args) {
+  context = (typeof context === 'object' ? context : window)
+  // 防止覆盖掉原有属性
+  const key = Symbol()
+  // 这里的this为需要执行的方法
+  context[key] = this
+  // 方法执行
+  const result = context[key](...args)
+  delete context[key]
+  return result
+}
+
+// 验证样例
+function fun(arg1, arg2) {
+  console.log(this.name)
+  console.log(arg1 + arg2)
+}
+const _this = { name: 'YIYING' }
+// 参数为数组;方法立即执行
+fun.ownApply(_this, [1, 2])
+
+// 输出：
+YIYING
+3
+</code></pre>
+<h3 id="bind">bind</h3>
+<pre><code class="language-javascript">/**
+ * 自定义bind实现
+ * @param context     上下文
+ * @returns {Function}
+ */
+Function.prototype.ownBind = function(context) {
+  context = (typeof context === 'object' ? context : window)
+  return (...args)=&gt;{
+    this.call(context, ...args)
+  }
+}
+
+// 验证样例
+function fun(arg1, arg2) {
+  console.log(this.name)
+  console.log(arg1 + arg2)
+}
+const _this = { name: 'YIYING' }
+// 只变更fun中的this指向，返回新function对象
+const newFun = fun.ownBind(_this)
+newFun(1, 2)
+
+// 输出：
+YIYING
+3
+</code></pre>
+<p>参考:<br>
+<a href="https://juejin.im/post/5de3881ee51d4501b9561ada?utm_source=gold_browser_extension">手写JS函数的call、apply、bind实现</a></p>
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/vueconfigjs-bie-ming-pei-zhi">
+              <h3 class="post-title">
+                下一篇：vue.config.js别名配置
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       
