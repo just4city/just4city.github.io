@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>关于 | Gridea</title>
+<title>Mac 修改pip 镜像源 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,24 +80,55 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">关于</h2>
+          <h2 class="post-title">Mac 修改pip 镜像源</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-01-25 19:09</span>
+            <span><i class="icon-calendar-outline"></i> 2019-12-04 10:58</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/N5JIILtGX">
+                    Python开发相关
+                    
+                  </a>
+                
+              </span>
             
           </div>
           <div class="post-content">
-            <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+            <h3 id="创建配置文件">创建配置文件</h3>
+<blockquote>
+<p>1.进入根目录：cd ~/<br>
+2.进入.pip目录 cd .pip<br>
+3.如果不存在文件夹就新建mkdir .pip<br>
+4.进入 cd .pip<br>
+5.创建pip.conf文件 touch pip.conf<br>
+6.修改：vim pip.conf</p>
 </blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+<h3 id="修改配置文件">修改配置文件</h3>
+<pre><code class="language-bash">[global]
+index-url=http://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
+</code></pre>
+<h3 id="临时使用镜像源">临时使用镜像源</h3>
+<pre><code class="language-bash">pip install request -i https://pypi.douban.com/simple
+</code></pre>
+<p>参考：<br>
+<a href="https://www.jianshu.com/p/f771e1120003">Mac 修改pip 镜像源</a></p>
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/python-de-xu-ni-huan-jing">
+              <h3 class="post-title">
+                下一篇：python的虚拟环境
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       
