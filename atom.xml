@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-12-11T02:24:36.759Z</updated>
+    <updated>2019-12-12T09:35:13.943Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[git删除远程文件夹或文件的方法]]></title>
+        <id>https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa</id>
+        <link href="https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa">
+        </link>
+        <updated>2019-12-12T09:33:47.000Z</updated>
+        <content type="html"><![CDATA[<p>由于本地修改了文件夹大全名大小写的原因，同步到git上并不区分大小写，造成了一些文件同步不了，所以要先把git远程库上文件夹删除掉，然后再重新同步。</p>
+<p>如下，我把src里的全部移除，但是本地文件还保留。</p>
+<pre><code class="language-bash">git rm -r -n --cached  */src/\*      //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。
+
+git rm -r --cached  */src/\*      //最终执行命令.
+
+git commit -m&quot;移除src目录下所有文件的版本控制&quot;    //提交
+
+git push origin master   //提交到远程服务器
+
+</code></pre>
+<p>若用<code>git status</code>命令查看，则<code>/src/</code>目录下文件出现在结果列表里， 我们不希望这个目录下的文件出现，则在项目根目录下，和<code>.git</code>同级目录下，新建一个<code>.gitignore</code>文件，</p>
+<p>把<code>.gitignore</code>提交到远程服务器。 则<code>/src</code>目录就不会被提交了。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Adonis.js在开发模式Debug]]></title>
         <id>https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug</id>
@@ -394,38 +415,6 @@ location / {
         </link>
         <updated>2019-11-23T02:46:06.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/03b9474c2dc1">https://www.jianshu.com/p/03b9474c2dc1</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[vue-cli3.0项目使用proxy跨域]]></title>
-        <id>https://just4city.github.io/post/vue-cli30-xiang-mu-shi-yong-proxy-kua-yu</id>
-        <link href="https://just4city.github.io/post/vue-cli30-xiang-mu-shi-yong-proxy-kua-yu">
-        </link>
-        <updated>2019-11-20T06:32:07.000Z</updated>
-        <content type="html"><![CDATA[<p>通过vue-cli3.x版本构建的项目使用proxy和以前的项目不同，而且3.x版本构建的时候可以选用typescript了。下面记录一下如何使用proxy跨域。<br>
-首先在根目录创建vue.config.js文件，这个配置文件在运行项目的时候自动加载。</p>
-<pre><code class="language-javascript">// vue.config.js
-module.exports = {
-  devServer: {
-    proxy: {
-      '/api': {
-        target: 'http://xxxx/device/', //对应自己的接口
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
-  }
-}
-
-</code></pre>
-<p>请求:</p>
-<pre><code class="language-javascript">axios.get('/api/getDataPoint').then(res =&gt; {
-  console.log(res)
-})
-</code></pre>
 ]]></content>
     </entry>
 </feed>

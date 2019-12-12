@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Python开发相关 | Gridea</title>
+<title>git删除远程文件夹或文件的方法 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -78,74 +78,53 @@
 
 
       <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">git删除远程文件夹或文件的方法</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-12-12 17:33</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/knT1WVz-G">
+                    Git相关
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>由于本地修改了文件夹大全名大小写的原因，同步到git上并不区分大小写，造成了一些文件同步不了，所以要先把git远程库上文件夹删除掉，然后再重新同步。</p>
+<p>如下，我把src里的全部移除，但是本地文件还保留。</p>
+<pre><code class="language-bash">git rm -r -n --cached  */src/\*      //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。
 
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> Python开发相关
-          </h2> 
+git rm -r --cached  */src/\*      //最终执行命令.
+
+git commit -m&quot;移除src目录下所有文件的版本控制&quot;    //提交
+
+git push origin master   //提交到远程服务器
+
+</code></pre>
+<p>若用<code>git status</code>命令查看，则<code>/src/</code>目录下文件出现在结果列表里， 我们不希望这个目录下的文件出现，则在项目根目录下，和<code>.git</code>同级目录下，新建一个<code>.gitignore</code>文件，</p>
+<p>把<code>.gitignore</code>提交到远程服务器。 则<code>/src</code>目录就不会被提交了。</p>
+
+          </div>
         </div>
 
         
-<section class="post-item">
-    <div class="content">
-      <a href="https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan">
-        <h2 class="post-title">Mac 修改pip 镜像源</h2>
-      </a>
-      <div class="post-abstract">
-        
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug">
+              <h3 class="post-title">
+                下一篇：Adonis.js在开发模式Debug
+              </h3>
+            </a>
+          </div>
+          
       </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2019-12-04 10:58</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://just4city.github.io/tag/N5JIILtGX">
-                Python开发相关
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
 
-<section class="post-item">
-    <div class="content">
-      <a href="https://just4city.github.io/post/python-de-xu-ni-huan-jing">
-        <h2 class="post-title">python的虚拟环境</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2019-12-04 10:34</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://just4city.github.io/tag/N5JIILtGX">
-                Python开发相关
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
-
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
-      </div>
+      
 
       <div class="site-footer">
   <div class="slogan">温故而知新</div>
