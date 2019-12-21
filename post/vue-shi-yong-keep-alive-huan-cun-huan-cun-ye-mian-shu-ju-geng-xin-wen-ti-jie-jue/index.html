@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>关于 | Gridea</title>
+<title>Vue使用keep-alive缓存，缓存页面数据更新问题解决 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,24 +80,55 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">关于</h2>
+          <h2 class="post-title">Vue使用keep-alive缓存，缓存页面数据更新问题解决</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-01-25 19:09</span>
+            <span><i class="icon-calendar-outline"></i> 2019-12-21 15:30</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/j95Kbd4pX">
+                    Vue
+                    
+                  </a>
+                
+              </span>
             
           </div>
           <div class="post-content">
-            <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+            <pre><code class="language-javascript">export default {
+    name: 'Demo',
+    data() {
+        return {}
+    },
+    beforeRouteEnter(to, from, next) {
+        next(vm =&gt; {
+            vm.getData();
+        });
+    },
+    mounted() {
+        this.getData();
+    },
+    methods: {
+        async getData() {
+            //获取数据
+        }
+    }
+};
+</code></pre>
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa">
+              <h3 class="post-title">
+                下一篇：git删除远程文件夹或文件的方法
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       

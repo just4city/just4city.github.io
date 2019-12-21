@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-12-12T09:35:13.943Z</updated>
+    <updated>2019-12-21T07:32:59.835Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Vue使用keep-alive缓存，缓存页面数据更新问题解决]]></title>
+        <id>https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue</id>
+        <link href="https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue">
+        </link>
+        <updated>2019-12-21T07:30:45.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-javascript">export default {
+    name: 'Demo',
+    data() {
+        return {}
+    },
+    beforeRouteEnter(to, from, next) {
+        next(vm =&gt; {
+            vm.getData();
+        });
+    },
+    mounted() {
+        this.getData();
+    },
+    methods: {
+        async getData() {
+            //获取数据
+        }
+    }
+};
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[git删除远程文件夹或文件的方法]]></title>
         <id>https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa</id>
@@ -406,15 +434,6 @@ location / {
 &lt;/error-page&gt; 
 </code></pre>
 <p><a href="https://ethan.pub/?p=897">https://ethan.pub/?p=897</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue:axios减少重复请求数据 keep-alive]]></title>
-        <id>https://just4city.github.io/post/vueaxios-jian-shao-chong-fu-qing-qiu-shu-ju-keep-alive</id>
-        <link href="https://just4city.github.io/post/vueaxios-jian-shao-chong-fu-qing-qiu-shu-ju-keep-alive">
-        </link>
-        <updated>2019-11-23T02:46:06.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/03b9474c2dc1">https://www.jianshu.com/p/03b9474c2dc1</a></p>
 ]]></content>
     </entry>
 </feed>
