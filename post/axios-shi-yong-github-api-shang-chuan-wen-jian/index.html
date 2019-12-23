@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Adonis.js在开发模式Debug | Gridea</title>
+<title>axios使用GitHub API上传文件 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,15 +80,22 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">Adonis.js在开发模式Debug</h2>
+          <h2 class="post-title">axios使用GitHub API上传文件</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-12-11 10:22</span>
+            <span><i class="icon-calendar-outline"></i> 2019-12-23 12:55</span>
             
               <span>
                 <i class="icon-pricetags-outline"></i>
                 
-                  <a href="https://just4city.github.io/tag/gTJwkzkuG">
-                    Adonis.js
+                  <a href="https://just4city.github.io/tag/QzBJfb3yR">
+                    WEB开发
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://just4city.github.io/tag/j95Kbd4pX">
+                    Vue
                     
                   </a>
                 
@@ -96,14 +103,49 @@
             
           </div>
           <div class="post-content">
-            <p>使用<code>adonis serve --dev --debug</code>无法进行<code>debug</code>。</p>
-<p>解决方法：</p>
-<pre><code class="language-javascript">
-npm install -g nodemon
+            <h4 id="创建token">创建token</h4>
+<p>登录自己的账号 进入页面生成Token <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt=""></figure>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt=""></figure>
+<h4 id="调用api接口">调用api接口</h4>
+<p><code>在这里上传文件必须将文件base64的编码格式上传。然后自己指定文件上传的路径和名字 文档地址[https://developer.github.com/v3/repos/contents/](https://developer.github.com/v3/repos/contents/)</code></p>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt=""></figure>
+<pre><code>接口地址/repos/:owner/:repo/contents/:path
 
-//package.json中设置
-&quot;scripts&quot;: {
-    &quot;debug&quot;: &quot;nodemon --inspect --trace-warnings server.js&quot;
+提交类型 put
+
+提交方式Content-Type:application/json
+
+提交内容
+
+{
+  &quot;message&quot;: &quot;提交说明&quot;,
+  &quot;committer&quot;: {
+    &quot;name&quot;: &quot;名字&quot;,
+    &quot;email&quot;: &quot;邮箱&quot;
+  },
+  &quot;content&quot;: &quot;将文件base64编码后的字符串&quot;
+}
+</code></pre>
+<h4 id="示例代码">示例代码</h4>
+<pre><code class="language-javascript">export const putRequest4GitHub = (url, params, header = {}) =&gt; {
+    return axios.put(url, JSON.stringify(params), {
+        header
+    });
+}
+
+export const uploadPic2Github = (name, base64) =&gt; {
+    return putRequest4GitHub(
+        `https://api.github.com/repos/just4picbed/oss/contents/${name}?access_token=your_token`,
+        {
+            &quot;message&quot;: &quot;pic&quot;,
+            &quot;committer&quot;: {
+                &quot;name&quot;: &quot;pic&quot;,
+                &quot;email&quot;: &quot;pic@qq.com&quot;
+            },
+            &quot;content&quot;: base64
+        }, {&quot;Content-Type&quot;: &quot;text/plain; charset=utf-8&quot;});
 }
 </code></pre>
 
@@ -112,9 +154,9 @@ npm install -g nodemon
 
         
           <div class="next-post">
-            <a class="purple-link" href="https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan">
+            <a class="purple-link" href="https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue">
               <h3 class="post-title">
-                下一篇：Mac 修改pip 镜像源
+                下一篇：Vue使用keep-alive缓存，缓存页面数据更新问题解决
               </h3>
             </a>
           </div>

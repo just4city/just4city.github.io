@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-12-21T07:32:59.835Z</updated>
+    <updated>2019-12-23T05:04:15.344Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,59 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[axios使用GitHub API上传文件]]></title>
+        <id>https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian</id>
+        <link href="https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian">
+        </link>
+        <updated>2019-12-23T04:55:13.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="创建token">创建token</h4>
+<p>登录自己的账号 进入页面生成Token <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt=""></figure>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt=""></figure>
+<h4 id="调用api接口">调用api接口</h4>
+<p><code>在这里上传文件必须将文件base64的编码格式上传。然后自己指定文件上传的路径和名字 文档地址[https://developer.github.com/v3/repos/contents/](https://developer.github.com/v3/repos/contents/)</code></p>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt=""></figure>
+<pre><code>接口地址/repos/:owner/:repo/contents/:path
+
+提交类型 put
+
+提交方式Content-Type:application/json
+
+提交内容
+
+{
+  &quot;message&quot;: &quot;提交说明&quot;,
+  &quot;committer&quot;: {
+    &quot;name&quot;: &quot;名字&quot;,
+    &quot;email&quot;: &quot;邮箱&quot;
+  },
+  &quot;content&quot;: &quot;将文件base64编码后的字符串&quot;
+}
+</code></pre>
+<h4 id="示例代码">示例代码</h4>
+<pre><code class="language-javascript">export const putRequest4GitHub = (url, params, header = {}) =&gt; {
+    return axios.put(url, JSON.stringify(params), {
+        header
+    });
+}
+
+export const uploadPic2Github = (name, base64) =&gt; {
+    return putRequest4GitHub(
+        `https://api.github.com/repos/just4picbed/oss/contents/${name}?access_token=your_token`,
+        {
+            &quot;message&quot;: &quot;pic&quot;,
+            &quot;committer&quot;: {
+                &quot;name&quot;: &quot;pic&quot;,
+                &quot;email&quot;: &quot;pic@qq.com&quot;
+            },
+            &quot;content&quot;: base64
+        }, {&quot;Content-Type&quot;: &quot;text/plain; charset=utf-8&quot;});
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue使用keep-alive缓存，缓存页面数据更新问题解决]]></title>
         <id>https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue</id>
@@ -399,41 +452,6 @@ chainWebpack: config =&gt; {
 }
 </code></pre>
 <p><a href="https://forum.vuejs.org/t/vue-cli-3-0-loader/43308">参考1</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Nginx解决vue router的history模式下，页面刷新404]]></title>
-        <id>https://just4city.github.io/post/nginx-jie-jue-vue-router-de-history-mo-shi-xia-ye-mian-shua-xin-404</id>
-        <link href="https://just4city.github.io/post/nginx-jie-jue-vue-router-de-history-mo-shi-xia-ye-mian-shua-xin-404">
-        </link>
-        <updated>2019-11-24T07:31:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>在日常开发中，我们使用到vue一般会有两种路由模式，一种是hash一种是history。相较于hash又长又臭的路由地址，相信大多数人更加喜欢history模式清爽的路由格式。但同样的，history模式也存在着一些问题。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>在日常开发中，我们使用到vue一般会有两种路由模式，一种是hash一种是history。相较于hash又长又臭的路由地址，相信大多数人更加喜欢history模式清爽的路由格式。但同样的，history模式也存在着一些问题。</p>
-<!-- more -->
-<p>因为我们的应用是个单页客户端应用，如果后台没有正确的配置，当用户在浏览器直接访问http://xxx.com/user/id就会返回 404，这就不好看了。官方给出了几种解决方式如下：</p>
-<pre><code class="language-bash">//Apache
-&lt;IfModule mod_rewrite.c&gt;
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-&lt;/IfModule&gt;
-
-//Nginx
-location / {
-  try_files $uri $uri/ /index.html;
-}
-
-//Tomcat
-&lt;error-page&gt;    
-    &lt;error-code&gt;404&lt;/error-code&gt;    
-    &lt;location&gt;/&lt;/location&gt;    
-&lt;/error-page&gt; 
-</code></pre>
-<p><a href="https://ethan.pub/?p=897">https://ethan.pub/?p=897</a></p>
 ]]></content>
     </entry>
 </feed>
