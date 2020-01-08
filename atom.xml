@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2019-12-31T16:04:03.823Z</updated>
+    <updated>2020-01-08T07:38:39.034Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -11,6 +11,47 @@
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
+        <title type="html"><![CDATA[Google Nginx 反代理翻墙服务搭建]]></title>
+        <id>https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian</id>
+        <link href="https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian">
+        </link>
+        <updated>2020-01-08T07:38:04.000Z</updated>
+        <content type="html"><![CDATA[<p>Nginx 配置</p>
+<pre><code class="language-bash">upstream www.google.com {
+    server 173.194.38.1:443;
+    server 173.194.38.2:443;
+    server 173.194.38.3:443;
+    server 173.194.38.4:443;
+}
+
+server{
+    listen 80;
+    server_name xxoo.lol www.xxoo.lol;
+    rewrite ^(.*) https://xxoo.lol/$1 permanent;
+}
+
+server{
+    listen 443;
+    server_name xxoo.lol;
+    ssl on;
+    ssl_certificate /usr/local/nginx/conf/vhost/ca/xxoo.lol.crt;
+    ssl_certificate_key /usr/local/nginx/conf/vhost/ca/xxoo.lol.key;
+    ssl_protocols SSLv3 TLSv1;
+    ssl_ciphers ALL:-ADH:+HIGH:+MEDIUM:-LOW:-SSLv2:-EXP;
+
+    location / {
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_pass https://www.google.com.hk;
+    }
+}
+</code></pre>
+<p>https://geek.lc/2019/11/30/google_nginx/</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[axios使用GitHub API上传文件]]></title>
         <id>https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian</id>
         <link href="https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian">
@@ -18,12 +59,12 @@
         <updated>2019-12-23T04:55:13.000Z</updated>
         <content type="html"><![CDATA[<h4 id="创建token">创建token</h4>
 <p>登录自己的账号 进入页面生成Token <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt=""></figure>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt=""></figure>
 <h4 id="调用api接口">调用api接口</h4>
 <p><code>在这里上传文件必须将文件base64的编码格式上传。然后自己指定文件上传的路径和名字 文档地址:https://developer.github.com/v3/repos/contents/</code></p>
-<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt=""></figure>
 <pre><code>接口地址/repos/:owner/:repo/contents/:path
 
 提交类型 put
@@ -364,7 +405,7 @@ module.exports = {
 </code></pre>
 <p>方法2：直接引入文件<code>项目目录\node_modules\@vue\cli-service\webpack.config.js</code>即可</p>
 <p>两个方法都需要在Webstrom中进行设置</p>
-<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/KGAY5NO.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/KGAY5NO.png" alt=""></figure>
 <p>参考：<br>
 <a href="https://juejin.im/post/5c9477ad6fb9a070ce31b050">在 WebStorm 中，配置能够识别 Vue CLI 3 创建的项目的别名 alias @</a><br>
 <a href="https://www.cnblogs.com/CyLee/p/8438824.html">webpack 使用别名（resolve.alias）解决scss @import相对路径导致的问题</a></p>
@@ -411,47 +452,6 @@ console.log( &quot;5&quot; );
 <p>所谓&quot;回调函数&quot;（callback），就是那些会被主线程挂起来的代码，前面说的点击事件$(selectot).click(function)中的function就是一个回调函数。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。例如ajax的success，complete，error也都指定了各自的回调函数，这些函数就会加入“任务队列”中，等待执行。</p>
 <p>来源:<br>
 <a href="https://blog.csdn.net/qq_22855325/article/details/72958345">https://blog.csdn.net/qq_22855325/article/details/72958345</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue-cli 3.0 怎么配置loader]]></title>
-        <id>https://just4city.github.io/post/vue-cli-30-zen-me-pei-zhi-loader</id>
-        <link href="https://just4city.github.io/post/vue-cli-30-zen-me-pei-zhi-loader">
-        </link>
-        <updated>2019-11-25T06:51:25.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">官方文档参考</a></p>
-<p>删除并制定规则</p>
-<pre><code class="language-javascript">chainWebpack: config =&gt; {
-  const imagesRule = config.module.rule('images')
-  imagesRule.uses.clear()
-  imagesRule.use('file-loader')
-    .loader('url-loader')
-    .options({
-      limit: 10000,
-      fallback: {
-        loader: 'file-loader',
-        options: {
-          name: 'img/[name].[hash:8].[ext]'
-        }
-      }
-    })
-}
-</code></pre>
-<p>修改规则</p>
-<pre><code class="language-javascript">const merge = require('webpack-merge')
-
-chainWebpack: config =&gt; {
-  config.module
-    .rule('images')
-    .use('url-loader')
-    .tap(options =&gt; {
-      return merge(options, {
-        limit: 10000
-      })
-    })
-}
-</code></pre>
-<p><a href="https://forum.vuejs.org/t/vue-cli-3-0-loader/43308">参考1</a></p>
 ]]></content>
     </entry>
 </feed>
