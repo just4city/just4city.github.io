@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2020-02-22T15:29:19.085Z</updated>
+    <updated>2020-02-22T15:32:32.556Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[Nest.js使用TypeORM]]></title>
-        <id>https://just4city.github.io/post/nestjs-shi-yong-typeorm</id>
-        <link href="https://just4city.github.io/post/nestjs-shi-yong-typeorm">
+        <id>https://just4city.github.io/post/nestjs-shi-yong-typeorm/</id>
+        <link href="https://just4city.github.io/post/nestjs-shi-yong-typeorm/">
         </link>
         <updated>2020-02-22T15:26:15.000Z</updated>
         <content type="html"><![CDATA[<h4 id="需要安装的包和packagejson配置">需要安装的包和package.json配置</h4>
@@ -59,8 +59,8 @@ module.exports = {
     </entry>
     <entry>
         <title type="html"><![CDATA[Google Nginx 反代理翻墙服务搭建]]></title>
-        <id>https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian</id>
-        <link href="https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian">
+        <id>https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian/</id>
+        <link href="https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian/">
         </link>
         <updated>2020-01-08T07:38:04.000Z</updated>
         <content type="html"><![CDATA[<p>Nginx 配置</p>
@@ -100,8 +100,8 @@ server{
     </entry>
     <entry>
         <title type="html"><![CDATA[axios使用GitHub API上传文件]]></title>
-        <id>https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian</id>
-        <link href="https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian">
+        <id>https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian/</id>
+        <link href="https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian/">
         </link>
         <updated>2019-12-23T04:55:13.000Z</updated>
         <content type="html"><![CDATA[<h4 id="创建token">创建token</h4>
@@ -153,8 +153,8 @@ export const uploadPic2Github = (name, base64) =&gt; {
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue使用keep-alive缓存，缓存页面数据更新问题解决]]></title>
-        <id>https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue</id>
-        <link href="https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue">
+        <id>https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue/</id>
+        <link href="https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue/">
         </link>
         <updated>2019-12-21T07:30:45.000Z</updated>
         <content type="html"><![CDATA[<pre><code class="language-javascript">export default {
@@ -181,8 +181,8 @@ export const uploadPic2Github = (name, base64) =&gt; {
     </entry>
     <entry>
         <title type="html"><![CDATA[git删除远程文件夹或文件的方法]]></title>
-        <id>https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa</id>
-        <link href="https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa">
+        <id>https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa/</id>
+        <link href="https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa/">
         </link>
         <updated>2019-12-12T09:33:47.000Z</updated>
         <content type="html"><![CDATA[<p>由于本地修改了文件夹大全名大小写的原因，同步到git上并不区分大小写，造成了一些文件同步不了，所以要先把git远程库上文件夹删除掉，然后再重新同步。</p>
@@ -202,8 +202,8 @@ git push origin master   //提交到远程服务器
     </entry>
     <entry>
         <title type="html"><![CDATA[Adonis.js在开发模式Debug]]></title>
-        <id>https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug</id>
-        <link href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug">
+        <id>https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug/</id>
+        <link href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug/">
         </link>
         <updated>2019-12-11T02:22:00.000Z</updated>
         <content type="html"><![CDATA[<p>使用<code>adonis serve --dev --debug</code>无法进行<code>debug</code>。</p>
@@ -220,8 +220,8 @@ npm install -g nodemon
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac 修改pip 镜像源]]></title>
-        <id>https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan</id>
-        <link href="https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan">
+        <id>https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan/</id>
+        <link href="https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan/">
         </link>
         <updated>2019-12-04T02:58:22.000Z</updated>
         <content type="html"><![CDATA[<h3 id="创建配置文件">创建配置文件</h3>
@@ -248,8 +248,8 @@ trusted-host=mirrors.aliyun.com
     </entry>
     <entry>
         <title type="html"><![CDATA[python的虚拟环境]]></title>
-        <id>https://just4city.github.io/post/python-de-xu-ni-huan-jing</id>
-        <link href="https://just4city.github.io/post/python-de-xu-ni-huan-jing">
+        <id>https://just4city.github.io/post/python-de-xu-ni-huan-jing/</id>
+        <link href="https://just4city.github.io/post/python-de-xu-ni-huan-jing/">
         </link>
         <updated>2019-12-04T02:34:18.000Z</updated>
         <content type="html"><![CDATA[<h3 id="什么是虚拟环境">什么是虚拟环境</h3>
@@ -318,8 +318,8 @@ PROJECT_HOME ：告诉virtualenvwrapper在哪里存放你的项目的工作目�
     </entry>
     <entry>
         <title type="html"><![CDATA[手写JS函数的call、apply、bind实现]]></title>
-        <id>https://just4city.github.io/post/shou-xie-js-han-shu-de-callapplybind-shi-xian</id>
-        <link href="https://just4city.github.io/post/shou-xie-js-han-shu-de-callapplybind-shi-xian">
+        <id>https://just4city.github.io/post/shou-xie-js-han-shu-de-callapplybind-shi-xian/</id>
+        <link href="https://just4city.github.io/post/shou-xie-js-han-shu-de-callapplybind-shi-xian/">
         </link>
         <updated>2019-12-03T07:18:30.000Z</updated>
         <content type="html"><![CDATA[<h3 id="call">call</h3>
@@ -418,8 +418,8 @@ YIYING
     </entry>
     <entry>
         <title type="html"><![CDATA[vue.config.js别名配置]]></title>
-        <id>https://just4city.github.io/post/vueconfigjs-bie-ming-pei-zhi</id>
-        <link href="https://just4city.github.io/post/vueconfigjs-bie-ming-pei-zhi">
+        <id>https://just4city.github.io/post/vueconfigjs-bie-ming-pei-zhi/</id>
+        <link href="https://just4city.github.io/post/vueconfigjs-bie-ming-pei-zhi/">
         </link>
         <updated>2019-12-02T13:15:26.000Z</updated>
         <content type="html"><![CDATA[<h3 id="配置别名alias">配置别名alias</h3>
