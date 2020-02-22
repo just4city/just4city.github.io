@@ -1,15 +1,18 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+    
+<meta charset="utf-8" >
 
 <title>git删除远程文件夹或文件的方法 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://just4city.github.io/favicon.ico?v=1582385529587">
+<link rel="shortcut icon" href="https://just4city.github.io/favicon.ico?v=1582385629177">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://just4city.github.io/styles/main.css">
 
@@ -18,85 +21,82 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
 
 
   </head>
   <body>
     <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://just4city.github.io">
-        <img src="https://just4city.github.io/images/avatar.png?v=1582385529587" class="site-logo">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://just4city.github.io">
+        <img class="avatar" src="https://just4city.github.io/images/avatar.png?v=1582385629177" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://just4city.github.io">
         <h1 class="site-title">Gridea</h1>
       </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
     </div>
-    <div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
         
-          <a href="/" class="site-nav">
+          <a href="/" class="menu purple-link">
             首页
           </a>
         
       
         
-          <a href="/archives" class="site-nav">
+          <a href="/archives" class="menu purple-link">
             归档
           </a>
         
       
         
-          <a href="/tags" class="site-nav">
+          <a href="/tags" class="menu purple-link">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="site-nav">
+          <a href="/post/about" class="menu purple-link">
             关于
           </a>
         
       
     </div>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      温故而知新
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://just4city.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
+</transition>
 
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">git删除远程文件夹或文件的方法</h2>
-            <div class="post-date">2019-12-12 17:33</div>
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">git删除远程文件夹或文件的方法</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-12-12 17:33</span>
             
-            <div class="post-content">
-              <p>由于本地修改了文件夹大全名大小写的原因，同步到git上并不区分大小写，造成了一些文件同步不了，所以要先把git远程库上文件夹删除掉，然后再重新同步。</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://just4city.github.io/tag/knT1WVz-G/">
+                    Git相关
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>由于本地修改了文件夹大全名大小写的原因，同步到git上并不区分大小写，造成了一些文件同步不了，所以要先把git远程库上文件夹删除掉，然后再重新同步。</p>
 <p>如下，我把src里的全部移除，但是本地文件还保留。</p>
 <pre><code class="language-bash">git rm -r -n --cached  */src/\*      //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。
 
@@ -110,40 +110,43 @@ git push origin master   //提交到远程服务器
 <p>若用<code>git status</code>命令查看，则<code>/src/</code>目录下文件出现在结果列表里， 我们不希望这个目录下的文件出现，则在项目根目录下，和<code>.git</code>同级目录下，新建一个<code>.gitignore</code>文件，</p>
 <p>把<code>.gitignore</code>提交到远程服务器。 则<code>/src</code>目录就不会被提交了。</p>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://just4city.github.io/tag/knT1WVz-G/" class="tag">
-                    Git相关
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug/">
-                  <h3 class="post-title">
-                    Adonis.js在开发模式Debug
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
           </div>
-
         </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug/">
+              <h3 class="post-title">
+                下一篇：Adonis.js在开发模式Debug
+              </h3>
+            </a>
+          </div>
+          
       </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://just4city.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
+    <script type="application/javascript">
 
 hljs.initHighlightingOnLoad()
 
