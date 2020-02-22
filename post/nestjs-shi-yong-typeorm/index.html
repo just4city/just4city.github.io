@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>JavaScript | Gridea</title>
+<title>Nest.js使用TypeORM | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -78,74 +78,69 @@
 
 
       <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Nest.js使用TypeORM</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-02-22 23:26</span>
+            
+          </div>
+          <div class="post-content">
+            <h4 id="需要安装的包和packagejson配置">需要安装的包和package.json配置</h4>
+<pre><code class="language-json">{
+    ...其他配置
+    &quot;serve&quot;: &quot;node --inspect -r ts-node/register src/main.ts&quot;, //配合chrome浏览器调试
+    &quot;serve:dev&quot;: &quot;npx ts-node-dev src/main.ts --debug --watch &quot;, //开发环境debu配置
+}
+</code></pre>
+<h4 id="ormconfigjs配置文件">ormconfig.js配置文件</h4>
+<pre><code class="language-typescript">const SOURCE_PATH = process.env.NODE_ENV === 'production' ? 'dist' : 'src';
+console.log('111: ', __dirname + `/${SOURCE_PATH}/entities/*.ts`)
+module.exports = {
+  &quot;type&quot;: &quot;mysql&quot;,
+  &quot;host&quot;: &quot;localhost&quot;,
+  &quot;port&quot;: 33060,
+  &quot;username&quot;: &quot;root&quot;,
+  &quot;password&quot;: &quot;root&quot;,
+  &quot;database&quot;: &quot;mooc_site&quot;,
+  &quot;entities&quot;: [__dirname + `/${SOURCE_PATH}/entities/*.ts`],
+  &quot;synchronize&quot;: false
+};
+</code></pre>
+<h4 id="tyconfigjson配置">tyconfig.json配置</h4>
+<pre><code class="language-json">{
+  &quot;compilerOptions&quot;: {
+    &quot;module&quot;: &quot;commonjs&quot;,
+    &quot;declaration&quot;: true,
+    &quot;removeComments&quot;: true,
+    &quot;emitDecoratorMetadata&quot;: true,
+    &quot;experimentalDecorators&quot;: true,
+    &quot;target&quot;: &quot;es2017&quot;,
+    &quot;sourceMap&quot;: true,
+    &quot;outDir&quot;: &quot;./dist&quot;,
+    &quot;baseUrl&quot;: &quot;./src&quot;,
+    &quot;incremental&quot;: true
+  },
+  &quot;include&quot;: [&quot;src/**/*&quot;, &quot;./ormconfig.js&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;dist&quot;]
+}
+</code></pre>
 
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> JavaScript
-          </h2> 
+          </div>
         </div>
 
         
-<section class="post-item">
-    <div class="content">
-      <a href="https://just4city.github.io/post/shou-xie-js-han-shu-de-callapplybind-shi-xian">
-        <h2 class="post-title">手写JS函数的call、apply、bind实现</h2>
-      </a>
-      <div class="post-abstract">
-        
+          <div class="next-post">
+            <a class="purple-link" href="https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian">
+              <h3 class="post-title">
+                下一篇：Google Nginx 反代理翻墙服务搭建
+              </h3>
+            </a>
+          </div>
+          
       </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2019-12-03 15:18</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://just4city.github.io/tag/ItETSLaSc">
-                JavaScript
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
 
-<section class="post-item">
-    <div class="content">
-      <a href="https://just4city.github.io/post/javascript-zhong-de-tong-bu-he-yi-bu">
-        <h2 class="post-title">JavaScript中的同步和异步</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2019-12-01 13:21</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://just4city.github.io/tag/ItETSLaSc">
-                JavaScript
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
-
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
-      </div>
+      
 
       <div class="site-footer">
   <div class="slogan">温故而知新</div>

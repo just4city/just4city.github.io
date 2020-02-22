@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2020-01-08T07:38:39.034Z</updated>
+    <updated>2020-02-22T15:29:19.085Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -10,6 +10,53 @@
     <logo>https://just4city.github.io/images/avatar.png</logo>
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Nest.js使用TypeORM]]></title>
+        <id>https://just4city.github.io/post/nestjs-shi-yong-typeorm</id>
+        <link href="https://just4city.github.io/post/nestjs-shi-yong-typeorm">
+        </link>
+        <updated>2020-02-22T15:26:15.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="需要安装的包和packagejson配置">需要安装的包和package.json配置</h4>
+<pre><code class="language-json">{
+    ...其他配置
+    &quot;serve&quot;: &quot;node --inspect -r ts-node/register src/main.ts&quot;, //配合chrome浏览器调试
+    &quot;serve:dev&quot;: &quot;npx ts-node-dev src/main.ts --debug --watch &quot;, //开发环境debu配置
+}
+</code></pre>
+<h4 id="ormconfigjs配置文件">ormconfig.js配置文件</h4>
+<pre><code class="language-typescript">const SOURCE_PATH = process.env.NODE_ENV === 'production' ? 'dist' : 'src';
+console.log('111: ', __dirname + `/${SOURCE_PATH}/entities/*.ts`)
+module.exports = {
+  &quot;type&quot;: &quot;mysql&quot;,
+  &quot;host&quot;: &quot;localhost&quot;,
+  &quot;port&quot;: 33060,
+  &quot;username&quot;: &quot;root&quot;,
+  &quot;password&quot;: &quot;root&quot;,
+  &quot;database&quot;: &quot;mooc_site&quot;,
+  &quot;entities&quot;: [__dirname + `/${SOURCE_PATH}/entities/*.ts`],
+  &quot;synchronize&quot;: false
+};
+</code></pre>
+<h4 id="tyconfigjson配置">tyconfig.json配置</h4>
+<pre><code class="language-json">{
+  &quot;compilerOptions&quot;: {
+    &quot;module&quot;: &quot;commonjs&quot;,
+    &quot;declaration&quot;: true,
+    &quot;removeComments&quot;: true,
+    &quot;emitDecoratorMetadata&quot;: true,
+    &quot;experimentalDecorators&quot;: true,
+    &quot;target&quot;: &quot;es2017&quot;,
+    &quot;sourceMap&quot;: true,
+    &quot;outDir&quot;: &quot;./dist&quot;,
+    &quot;baseUrl&quot;: &quot;./src&quot;,
+    &quot;incremental&quot;: true
+  },
+  &quot;include&quot;: [&quot;src/**/*&quot;, &quot;./ormconfig.js&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;dist&quot;]
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Google Nginx 反代理翻墙服务搭建]]></title>
         <id>https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian</id>
@@ -59,12 +106,12 @@ server{
         <updated>2019-12-23T04:55:13.000Z</updated>
         <content type="html"><![CDATA[<h4 id="创建token">创建token</h4>
 <p>登录自己的账号 进入页面生成Token <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt=""></figure>
-<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt=""></figure>
-<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt="" loading="lazy"></figure>
 <h4 id="调用api接口">调用api接口</h4>
 <p><code>在这里上传文件必须将文件base64的编码格式上传。然后自己指定文件上传的路径和名字 文档地址:https://developer.github.com/v3/repos/contents/</code></p>
-<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt=""></figure>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt="" loading="lazy"></figure>
 <pre><code>接口地址/repos/:owner/:repo/contents/:path
 
 提交类型 put
@@ -405,53 +452,10 @@ module.exports = {
 </code></pre>
 <p>方法2：直接引入文件<code>项目目录\node_modules\@vue\cli-service\webpack.config.js</code>即可</p>
 <p>两个方法都需要在Webstrom中进行设置</p>
-<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/KGAY5NO.png" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/KGAY5NO.png" alt="" loading="lazy"></figure>
 <p>参考：<br>
 <a href="https://juejin.im/post/5c9477ad6fb9a070ce31b050">在 WebStorm 中，配置能够识别 Vue CLI 3 创建的项目的别名 alias @</a><br>
 <a href="https://www.cnblogs.com/CyLee/p/8438824.html">webpack 使用别名（resolve.alias）解决scss @import相对路径导致的问题</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[JavaScript中的同步和异步]]></title>
-        <id>https://just4city.github.io/post/javascript-zhong-de-tong-bu-he-yi-bu</id>
-        <link href="https://just4city.github.io/post/javascript-zhong-de-tong-bu-he-yi-bu">
-        </link>
-        <updated>2019-12-01T05:21:19.000Z</updated>
-        <content type="html"><![CDATA[<p>你应该知道，javascript语言是一门“单线程”的语言，不像java语言，类继承Thread再来个thread.start就可以开辟一个线程，所以，javascript就像一条流水线，仅仅是一条流水线而已，要么加工，要么包装，不能同时进行多个任务和流程。</p>
-<p>那么这里说的同步和异步到底是什么呢？如果你真的不懂，我希望你认真读完这篇文章。其实我个人觉得js官方的文档在使用两个词的时候并不准确，包括很多其他词汇，都只是听起来高深，但实际应用好像跟这些词没半毛钱关系。例如“事件委托”这个词，不知道的人乍一看谁又能说出“事件委托”是什么意思？委托什么事件？怎么个委托，我看不如干脆就叫“事件在外层元素中的捕获”，虽然长一点，一下就能看懂。</p>
-<p>回归正轨，“同步”——一下就让人想到“一起”这个词；“异步”呢，从字面来讲，好像是在不同的（异）的ways上do something，那首先想到的词可能是“一边...一边...”,比如‘小明一边吃雪糕一边写作业’，这完全没毛病，雪糕吃完了，作业也写完了，这就是异步？那就大错特错了！</p>
-<p>其实同步和异步，无论如何，做事情的时候都是只有一条流水线（单线程），同步和异步的差别就在于<code>这条流水线上各个流程的执行顺序不同</code>。</p>
-<p>最基础的异步是setTimeout和setInterval函数，很常见，但是很少人有人知道其实这就是异步，因为它们可以控制js的执行顺序。我们也可以简单地理解为：可以改变程序正常执行顺序的操作就可以看成是异步操作。如下代码：</p>
-<pre><code class="language-javascript">console.log( &quot;1&quot; );
-setTimeout(function() {
-    console.log( &quot;2&quot; )
-}, 0 );
-setTimeout(function() {
-    console.log( &quot;3&quot; )
-}, 0 );
-setTimeout(function() {
-    console.log( &quot;4&quot; )
-}, 0 );
-console.log( &quot;5&quot; );
-//显示结果
-1
-5
-2
-3
-4
-</code></pre>
-<p>可见，尽管我们设置了setTimeout（function，time）中的等待时间为0，结果其中的function还是后执行。</p>
-<p>火狐浏览器的api文档有这样一句话：Because even though setTimeout was called with a delay of zero, it's placed on a queue and scheduled to run at the next opportunity, not immediately. Currently executing code must complete before functions on the queue are executed, the resulting execution order may not be as expected.</p>
-<p>意思就是：尽管setTimeout的time延迟时间为0，其中的function也会被放入一个队列中，等待下一个机会执行，当前的代码（指不需要加入队列中的程序）必须在该队列的程序完成之前完成，因此结果可能不与预期结果相同。</p>
-<p>这里说到了一个“队列”（即任务队列），该队列放的是什么呢，放的就是setTimeout中的function，这些function依次加入该队列，即该队列中所有function中的程序将会在该队列以外的所有代码执行完毕之后再以此执行，这是为什么呢？因为在执行程序的时候，浏览器会默认setTimeout以及ajax请求这一类的方法都是耗时程序（尽管可能不耗时），将其加入一个队列中，该队列是一个存储耗时程序的队列，在所有不耗时程序执行过后，再来依次执行该队列中的程序。</p>
-<p>又回到了最初的起点——javascript是单线程。单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。如果前一个任务耗时很长，后一个任务就不得不一直等着。于是就有一个概念——任务队列。如果排队是因为计算量大，CPU忙不过来，倒也算了，但是很多时候CPU是闲着的，因为IO设备（输入输出设备）很慢（比如Ajax操作从网络读取数据），不得不等着结果出来，再往下执行。于是JavaScript语言的设计者意识到，这时主线程完全可以不管IO设备，挂起处于等待中的任务，先运行排在后面的任务。等到IO设备返回了结果，再回过头，把挂起的任务继续执行下去。</p>
-<p><code>于是，所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入&quot;任务队列&quot;（task queue）的任务，只有等主线程任务执行完毕，&quot;任务队列&quot;开始通知主线程，请求执行任务，该任务才会进入主线程执行。</code></p>
-<p>只要主线程空了，就会去读取&quot;任务队列&quot;，这就是JavaScript的运行机制。这个过程会不断重复。</p>
-<p>&quot;任务队列&quot;是一个事件的队列（也可以理解成消息的队列），IO设备完成一项任务，就在&quot;任务队列&quot;中添加一个事件，表示相关的异步任务可以进入&quot;执行栈&quot;了。主线程读取&quot;任务队列&quot;，就是读取里面有哪些事件。<br>
-&quot;任务队列&quot;中的事件，除了IO设备的事件以外，还包括一些用户产生的事件（比如鼠标点击、页面滚动等等），比如$(selectot).click(function)，这些都是相对耗时的操作。只要指定过这些事件的回调函数，这些事件发生时就会进入&quot;任务队列&quot;，等待主线程读取。</p>
-<p>所谓&quot;回调函数&quot;（callback），就是那些会被主线程挂起来的代码，前面说的点击事件$(selectot).click(function)中的function就是一个回调函数。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。例如ajax的success，complete，error也都指定了各自的回调函数，这些函数就会加入“任务队列”中，等待执行。</p>
-<p>来源:<br>
-<a href="https://blog.csdn.net/qq_22855325/article/details/72958345">https://blog.csdn.net/qq_22855325/article/details/72958345</a></p>
 ]]></content>
     </entry>
 </feed>
