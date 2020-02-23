@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://just4city.github.io/favicon.ico?v=1582421915491">
+<link rel="shortcut icon" href="https://just4city.github.io/favicon.ico?v=1582423957708">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://just4city.github.io/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://just4city.github.io">
-        <img src="https://just4city.github.io/images/avatar.png?v=1582421915491" class="site-logo">
+        <img src="https://just4city.github.io/images/avatar.png?v=1582423957708" class="site-logo">
         <h1 class="site-title">Gridea</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -97,6 +97,8 @@
             
             <div class="post-content">
               <h4 id="需要安装的包和packagejson配置">需要安装的包和package.json配置</h4>
+<pre><code class="language-bash">npm install ts-node ts-node-dev
+</code></pre>
 <pre><code class="language-json">{
     ...其他配置
     &quot;serve&quot;: &quot;node --inspect -r ts-node/register src/main.ts&quot;, //配合chrome浏览器调试
@@ -105,7 +107,7 @@
 </code></pre>
 <h4 id="ormconfigjs配置文件">ormconfig.js配置文件</h4>
 <pre><code class="language-typescript">const SOURCE_PATH = process.env.NODE_ENV === 'production' ? 'dist' : 'src';
-console.log('111: ', __dirname + `/${SOURCE_PATH}/entities/*.ts`)
+console.log('path: ', __dirname + `/${SOURCE_PATH}/entities/*.ts`)
 module.exports = {
   &quot;type&quot;: &quot;mysql&quot;,
   &quot;host&quot;: &quot;localhost&quot;,
@@ -113,7 +115,7 @@ module.exports = {
   &quot;username&quot;: &quot;root&quot;,
   &quot;password&quot;: &quot;root&quot;,
   &quot;database&quot;: &quot;mooc_site&quot;,
-  &quot;entities&quot;: [__dirname + `/${SOURCE_PATH}/entities/*.ts`],
+  &quot;entities&quot;: [__dirname + `/${SOURCE_PATH}/entities/*{.ts,.js}`],
   &quot;synchronize&quot;: false
 };
 </code></pre>
