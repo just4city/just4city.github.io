@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Python开发相关 | Gridea</title>
+<title>typecho开启https后无法登录后台 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,43 +91,33 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Python开发相关</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan/">
-                  <h2 class="post-title">Mac 修改pip 镜像源</h2>
-                </a>
-                <div class="post-date">
-                  2019-12-04 10:58
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://just4city.github.io/post/python-de-xu-ni-huan-jing/">
-                  <h2 class="post-title">python的虚拟环境</h2>
-                </a>
-                <div class="post-date">
-                  2019-12-04 10:34
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">typecho开启https后无法登录后台</h2>
+            <div class="post-date">2020-02-28 19:25</div>
+            
+            <div class="post-content">
+              <p>我的blog使用了cloudflare的https，在typecho里也开始https后，初看一切正常，但是登录后台时，返回302，重定向到了登录页。<br>
+修改typecho下的这个文件<code>config.inc.php</code>:</p>
+<pre><code class="language-php">//增加如下代码：
+define('__TYPECHO_SECURE__', true);
+</code></pre>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://just4city.github.io/post/nestjs-shi-yong-typeorm/">
+                  <h3 class="post-title">
+                    Nest.js使用TypeORM
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
