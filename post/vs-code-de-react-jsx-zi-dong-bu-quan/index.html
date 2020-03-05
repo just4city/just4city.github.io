@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Adonis.js | Gridea</title>
+<title>VS Code的React JSX自动补全 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,28 +91,38 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Adonis.js</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug/">
-                  <h2 class="post-title">Adonis.js在开发模式Debug</h2>
-                </a>
-                <div class="post-date">
-                  2019-12-11 10:22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">VS Code的React JSX自动补全</h2>
+            <div class="post-date">2020-03-05 14:09</div>
+            
+            <div class="post-content">
+              <p>1.打开菜单栏 文件 - 首选项 - 设置，搜索<code>emmet.triggerExpansionOnTab</code>，复制该行内容，粘贴到右侧并保存。<br>
+修改内容为：</p>
+<pre><code class="language-json">emmet.triggerExpansionOnTab:true
+</code></pre>
+<p>2.打开菜单栏 文件 - 首选项 - 设置，搜索<code>includeLanguages</code>，然后进入到用户设置，点击<code>settings.json</code>中编辑，进入到新画面。搜索<code>emmet.includeLanguages</code>，添加如下代码：</p>
+<pre><code class="language-json">&quot;emmet.includeLanguages&quot;: {
+    &quot;wxml&quot;: &quot;html&quot;,
+    &quot;javascript&quot;: &quot;javascriptreact&quot;
+}
+</code></pre>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://just4city.github.io/post/typecho-kai-qi-https-hou-wu-fa-deng-lu-hou-tai/">
+                  <h3 class="post-title">
+                    typecho开启https后无法登录后台
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
