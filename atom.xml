@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://just4city.github.io</id>
     <title>Gridea</title>
-    <updated>2020-03-31T09:10:21.058Z</updated>
+    <updated>2020-06-02T03:02:39.532Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://just4city.github.io"/>
     <link rel="self" href="https://just4city.github.io/atom.xml"/>
@@ -11,9 +11,25 @@
     <icon>https://just4city.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
+        <title type="html"><![CDATA[10.14.6安装Cocoapods报错问题解决]]></title>
+        <id>https://just4city.github.io/post/10146-an-zhuang-cocoapods-bao-cuo-wen-ti-jie-jue</id>
+        <link href="https://just4city.github.io/post/10146-an-zhuang-cocoapods-bao-cuo-wen-ti-jie-jue">
+        </link>
+        <updated>2020-06-02T03:01:25.000Z</updated>
+        <content type="html"><![CDATA[<p>显示如下错误：</p>
+<pre><code class="language-bash">ERROR:  Error installing cocoapods:
+ERROR: Failed to build gem native extension.
+</code></pre>
+<p>解决方法</p>
+<pre><code class="language-bash">brew cleanup -d -v    
+brew install cocoapods
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[配置 Rust 开发环境]]></title>
-        <id>https://just4city.github.io/post/pei-zhi-rust-kai-fa-huan-jing/</id>
-        <link href="https://just4city.github.io/post/pei-zhi-rust-kai-fa-huan-jing/">
+        <id>https://just4city.github.io/post/pei-zhi-rust-kai-fa-huan-jing</id>
+        <link href="https://just4city.github.io/post/pei-zhi-rust-kai-fa-huan-jing">
         </link>
         <updated>2020-03-31T09:06:51.000Z</updated>
         <summary type="html"><![CDATA[<p>涉及到 Rust Language Server （以下简称 RLS）部分的工具都需要 nightly 版本</p>
@@ -41,8 +57,8 @@ export PATH=$PATH:$RUSTBINPATH
     </entry>
     <entry>
         <title type="html"><![CDATA[VS Code的React JSX自动补全]]></title>
-        <id>https://just4city.github.io/post/vs-code-de-react-jsx-zi-dong-bu-quan/</id>
-        <link href="https://just4city.github.io/post/vs-code-de-react-jsx-zi-dong-bu-quan/">
+        <id>https://just4city.github.io/post/vs-code-de-react-jsx-zi-dong-bu-quan</id>
+        <link href="https://just4city.github.io/post/vs-code-de-react-jsx-zi-dong-bu-quan">
         </link>
         <updated>2020-03-05T06:09:03.000Z</updated>
         <content type="html"><![CDATA[<p>1.打开菜单栏 文件 - 首选项 - 设置，搜索<code>emmet.triggerExpansionOnTab</code>，复制该行内容，粘贴到右侧并保存。<br>
@@ -59,8 +75,8 @@ export PATH=$PATH:$RUSTBINPATH
     </entry>
     <entry>
         <title type="html"><![CDATA[typecho开启https后无法登录后台]]></title>
-        <id>https://just4city.github.io/post/typecho-kai-qi-https-hou-wu-fa-deng-lu-hou-tai/</id>
-        <link href="https://just4city.github.io/post/typecho-kai-qi-https-hou-wu-fa-deng-lu-hou-tai/">
+        <id>https://just4city.github.io/post/typecho-kai-qi-https-hou-wu-fa-deng-lu-hou-tai</id>
+        <link href="https://just4city.github.io/post/typecho-kai-qi-https-hou-wu-fa-deng-lu-hou-tai">
         </link>
         <updated>2020-02-28T11:25:19.000Z</updated>
         <content type="html"><![CDATA[<p>我的blog使用了cloudflare的https，在typecho里也开始https后，初看一切正常，但是登录后台时，返回302，重定向到了登录页。<br>
@@ -72,8 +88,8 @@ define('__TYPECHO_SECURE__', true);
     </entry>
     <entry>
         <title type="html"><![CDATA[Nest.js使用TypeORM]]></title>
-        <id>https://just4city.github.io/post/nestjs-shi-yong-typeorm/</id>
-        <link href="https://just4city.github.io/post/nestjs-shi-yong-typeorm/">
+        <id>https://just4city.github.io/post/nestjs-shi-yong-typeorm</id>
+        <link href="https://just4city.github.io/post/nestjs-shi-yong-typeorm">
         </link>
         <updated>2020-02-22T15:26:15.000Z</updated>
         <content type="html"><![CDATA[<h4 id="需要安装的包和packagejson配置">需要安装的包和package.json配置</h4>
@@ -121,8 +137,8 @@ module.exports = {
     </entry>
     <entry>
         <title type="html"><![CDATA[Google Nginx 反代理翻墙服务搭建]]></title>
-        <id>https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian/</id>
-        <link href="https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian/">
+        <id>https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian</id>
+        <link href="https://just4city.github.io/post/google-nginx-fan-dai-li-fan-qiang-fu-wu-da-jian">
         </link>
         <updated>2020-01-08T07:38:04.000Z</updated>
         <content type="html"><![CDATA[<p>Nginx 配置</p>
@@ -162,18 +178,18 @@ server{
     </entry>
     <entry>
         <title type="html"><![CDATA[axios使用GitHub API上传文件]]></title>
-        <id>https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian/</id>
-        <link href="https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian/">
+        <id>https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian</id>
+        <link href="https://just4city.github.io/post/axios-shi-yong-github-api-shang-chuan-wen-jian">
         </link>
         <updated>2019-12-23T04:55:13.000Z</updated>
         <content type="html"><![CDATA[<h4 id="创建token">创建token</h4>
 <p>登录自己的账号 进入页面生成Token <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125919-5jH7lC.jpg" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/20191223125931-vhRVkA.jpg" alt=""></figure>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/2019122313033-BF5EzV.jpg" alt=""></figure>
 <h4 id="调用api接口">调用api接口</h4>
 <p><code>在这里上传文件必须将文件base64的编码格式上传。然后自己指定文件上传的路径和名字 文档地址:https://developer.github.com/v3/repos/contents/</code></p>
-<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/just4picbed/oss@master/201912231320-PSetXs.jpg" alt=""></figure>
 <pre><code>接口地址/repos/:owner/:repo/contents/:path
 
 提交类型 put
@@ -215,8 +231,8 @@ export const uploadPic2Github = (name, base64) =&gt; {
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue使用keep-alive缓存，缓存页面数据更新问题解决]]></title>
-        <id>https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue/</id>
-        <link href="https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue/">
+        <id>https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue</id>
+        <link href="https://just4city.github.io/post/vue-shi-yong-keep-alive-huan-cun-huan-cun-ye-mian-shu-ju-geng-xin-wen-ti-jie-jue">
         </link>
         <updated>2019-12-21T07:30:45.000Z</updated>
         <content type="html"><![CDATA[<pre><code class="language-javascript">export default {
@@ -243,8 +259,8 @@ export const uploadPic2Github = (name, base64) =&gt; {
     </entry>
     <entry>
         <title type="html"><![CDATA[git删除远程文件夹或文件的方法]]></title>
-        <id>https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa/</id>
-        <link href="https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa/">
+        <id>https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa</id>
+        <link href="https://just4city.github.io/post/git-shan-chu-yuan-cheng-wen-jian-jia-huo-wen-jian-de-fang-fa">
         </link>
         <updated>2019-12-12T09:33:47.000Z</updated>
         <content type="html"><![CDATA[<p>由于本地修改了文件夹大全名大小写的原因，同步到git上并不区分大小写，造成了一些文件同步不了，所以要先把git远程库上文件夹删除掉，然后再重新同步。</p>
@@ -264,8 +280,8 @@ git push origin master   //提交到远程服务器
     </entry>
     <entry>
         <title type="html"><![CDATA[Adonis.js在开发模式Debug]]></title>
-        <id>https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug/</id>
-        <link href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug/">
+        <id>https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug</id>
+        <link href="https://just4city.github.io/post/adonisjs-zai-kai-fa-mo-shi-debug">
         </link>
         <updated>2019-12-11T02:22:00.000Z</updated>
         <content type="html"><![CDATA[<p>使用<code>adonis serve --dev --debug</code>无法进行<code>debug</code>。</p>
@@ -278,34 +294,6 @@ npm install -g nodemon
     &quot;debug&quot;: &quot;nodemon --inspect --trace-warnings server.js&quot;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mac 修改pip 镜像源]]></title>
-        <id>https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan/</id>
-        <link href="https://just4city.github.io/post/mac-xiu-gai-pip-jing-xiang-yuan/">
-        </link>
-        <updated>2019-12-04T02:58:22.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="创建配置文件">创建配置文件</h3>
-<blockquote>
-<p>1.进入根目录：cd ~/<br>
-2.进入.pip目录 cd .pip<br>
-3.如果不存在文件夹就新建mkdir .pip<br>
-4.进入 cd .pip<br>
-5.创建pip.conf文件 touch pip.conf<br>
-6.修改：vim pip.conf</p>
-</blockquote>
-<h3 id="修改配置文件">修改配置文件</h3>
-<pre><code class="language-bash">[global]
-index-url=http://mirrors.aliyun.com/pypi/simple/
-[install]
-trusted-host=mirrors.aliyun.com
-</code></pre>
-<h3 id="临时使用镜像源">临时使用镜像源</h3>
-<pre><code class="language-bash">pip install request -i https://pypi.douban.com/simple
-</code></pre>
-<p>参考：<br>
-<a href="https://www.jianshu.com/p/f771e1120003">Mac 修改pip 镜像源</a></p>
 ]]></content>
     </entry>
 </feed>

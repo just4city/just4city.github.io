@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Vue-cli 3.0 怎么配置loader | Gridea</title>
+<title>10.14.6安装Cocoapods报错问题解决 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,60 +92,27 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Vue-cli 3.0 怎么配置loader</h2>
-            <div class="post-date">2019-11-25 14:51</div>
+            <h2 class="post-title">10.14.6安装Cocoapods报错问题解决</h2>
+            <div class="post-date">2020-06-02 11:01</div>
             
             <div class="post-content">
-              <p><a href="https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">官方文档参考</a></p>
-<p>删除并制定规则</p>
-<pre><code class="language-javascript">chainWebpack: config =&gt; {
-  const imagesRule = config.module.rule('images')
-  imagesRule.uses.clear()
-  imagesRule.use('file-loader')
-    .loader('url-loader')
-    .options({
-      limit: 10000,
-      fallback: {
-        loader: 'file-loader',
-        options: {
-          name: 'img/[name].[hash:8].[ext]'
-        }
-      }
-    })
-}
+              <p>显示如下错误：</p>
+<pre><code class="language-bash">ERROR:  Error installing cocoapods:
+ERROR: Failed to build gem native extension.
 </code></pre>
-<p>修改规则</p>
-<pre><code class="language-javascript">const merge = require('webpack-merge')
-
-chainWebpack: config =&gt; {
-  config.module
-    .rule('images')
-    .use('url-loader')
-    .tap(options =&gt; {
-      return merge(options, {
-        limit: 10000
-      })
-    })
-}
+<p>解决方法</p>
+<pre><code class="language-bash">brew cleanup -d -v    
+brew install cocoapods
 </code></pre>
-<p><a href="https://forum.vuejs.org/t/vue-cli-3-0-loader/43308">参考1</a></p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://just4city.github.io/tag/j95Kbd4pX" class="tag">
-                    Vue
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://just4city.github.io/post/nginx-jie-jue-vue-router-de-history-mo-shi-xia-ye-mian-shua-xin-404">
+                <a href="https://just4city.github.io/post/pei-zhi-rust-kai-fa-huan-jing">
                   <h3 class="post-title">
-                    Nginx解决vue router的history模式下，页面刷新404
+                    配置 Rust 开发环境
                   </h3>
                 </a>
               </div>
